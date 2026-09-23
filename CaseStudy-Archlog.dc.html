@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..800;1,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: #17181c; font-family: "Figtree", system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; background: #ffffff; }
+  * { box-sizing: border-box; }
+  ::selection { background: #c6d5ec; }
+  a { color: #3357c9; }
+  a:hover { color: #22357d; }
+  @media (max-width: 520px) {
+    #nav-brand { font-size: 0 !important; }
+    #nav-brand::after { content: "AP"; font-size: 15px; font-weight: 700; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</helmet>
+<div ref="{{ containerRef }}" id="top" style="position: relative; overflow-x: clip;">
+
+  <nav ref="{{ navRef }}" id="nav" aria-label="Primary" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px clamp(20px, 4vw, 44px); background: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(30,50,90,0.09); backdrop-filter: saturate(1.6) blur(16px); -webkit-backdrop-filter: saturate(1.6) blur(16px); transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
+    <a href="Portfolio.dc.html#top" id="nav-brand" style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: #17181c; text-decoration: none;"><b>AP</b></a>
+    <div style="display: flex; align-items: center; gap: clamp(4px, 1vw, 10px);">
+      <a href="Portfolio.dc.html#top" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">Home</a>
+      <a href="AboutMe.dc.html" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">About me</a>
+      <a href="Portfolio.dc.html#projects" aria-current="page" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: #17181c; background: rgba(30,50,90,0.06); text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">Projects</a>
+      <a href="https://drive.google.com/file/d/1RqPw23uk4WzAJzDFvYxji89rrciK0QHw/view?usp=sharing" target="_blank" rel="noopener" aria-label="Resume (PDF)" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/aliyah-e-panjon/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg>
+      </a>
+    </div>
+  </nav>
+
+<main style="padding-top: 54px;">
+
+    <header style="max-width: 860px; margin: 0 auto; padding: clamp(52px, 9vw, 96px) clamp(22px, 4vw, 40px) clamp(30px, 5vw, 52px);">
+      <a href="Portfolio.dc.html#projects" data-reveal="" style="opacity: 0; transform: translateY(16px); transition: opacity 0.6s cubic-bezier(0.2,0.7,0.2,1), transform 0.6s cubic-bezier(0.2,0.7,0.2,1); display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #5c6b86; text-decoration: none;" style-hover="color: #22357d;"><span aria-hidden="true">←</span> All projects</a>
+      <p data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.05s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.05s; margin: 30px 0 16px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5c6b86;">Archlog · Team project</p>
+      <h1 data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s; margin: 0; font-size: clamp(2.1rem, 5.4vw, 3.5rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; color: #14161c; text-wrap: balance;">Architecture students lose the “why” behind their design decisions</h1>
+      <p data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.16s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.16s; margin: 26px 0 0; font-size: clamp(1.08rem, 2vw, 1.3rem); line-height: 1.6; color: #3f4a5c; max-width: 66ch; text-wrap: pretty;">ArchLog is a design-decision tracker for architecture students: a place to capture <em style="color:#5c6b86;">why</em> a move was made while it’s still happening, instead of reconstructing the story from memory the night before a review. We ran research with 17+ students, a focus group, and stakeholder-tested usability studies that showed the real gap wasn’t idea generation; it was traceability. We tested seven feature concepts head-to-head, and one won by a wide margin.</p>
+    </header>
+
+    <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); max-width: 860px; margin: 0 auto 16px; padding: 0 clamp(22px, 4vw, 40px);">
+      <div style="border: 1px solid rgba(30,50,90,0.12); border-radius: 11px; background: #fbfcfe; padding: clamp(20px, 3vw, 28px); display: flex; flex-direction: column; gap: 16px;">
+        <p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">TL;DR</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 20px 28px;">
+          <div><p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: #5c6b86;">Problem</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 500; line-height: 1.55; color: #14161c; text-wrap: pretty;">Architecture students lose the reasoning behind their design decisions by the time they reach critique.</p></div>
+          <div><p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: #5c6b86;">My role</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 500; line-height: 1.55; color: #14161c; text-wrap: pretty;">UX design and research on a team of three: a 17+ response survey, a focus group, A/B usability sessions, and the prototype.</p></div>
+          <div><p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: #5c6b86;">Outcome</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 500; line-height: 1.55; color: #14161c; text-wrap: pretty;">The Design Decision Tracker ranked first of seven concepts (average 1.75), with 3 of 4 participants naming it their top choice.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); max-width: 860px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: rgba(30,50,90,0.12); border: 1px solid rgba(30,50,90,0.12); border-radius: 11px; overflow: hidden;">
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Role</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">UX Design and Research</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Team</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Aliyah Panjon, Amy Ruiz and Susan Chapas</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Timeline</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">4 weeks</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Stakeholder</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Prof. Aurora Bonomi</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Users</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Architecture undergrad students</p></div>
+      </div>
+    </section>
+
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+
+      <section id="overview" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Overview</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">ArchLog is a decision-logging tool built for a workflow that has no standard pattern: architecture studio work. It pairs a project overview (visuals uploaded alongside each decision) with a decision log (what changed, why, and what it trades off), then turns that log into a critique-ready narrative so students walk into review prepared instead of reconstructing their thinking from scratch.</p>
+      </section>
+
+      <section id="impact" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Impact</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px;">
+          <li style="display: flex; gap: 13px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.6; color: #3f4a5c;"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5c6b86;"></span><span>Tested seven feature concepts with focus-group participants; the Design Decision Tracker finished first by a wide margin, with 3 of 4 participants naming it their top choice.</span></li>
+          <li style="display: flex; gap: 13px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.6; color: #3f4a5c;"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5c6b86;"></span><span>Research (17+ survey responses, a 4-person focus group, 6 A/B usability sessions with students and stakeholder Prof. Aurora Bonomi) reframed the problem itself: the gap isn’t ideation, it’s traceability, a finding that shaped which of seven concepts we built.</span></li>
+          <li style="display: flex; gap: 13px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.6; color: #3f4a5c;"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5c6b86;"></span><span>Confirmed the design direction against a real stakeholder before committing: two directions were pressure-tested in A/B usability studies before ArchLog’s current structure was chosen.</span></li>
+        </ul>
+      </section>
+
+      <section id="challenge" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">The challenge</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">Across studio environments, students struggle to structure their design process, and once they’re moving, there’s no consistent way to capture why they made the moves they made. Critiques rely on memory, while the actual decisions live scattered across notebooks, Miro boards, and “shower thoughts,” creating a fragmented, hard-to-defend narrative that varies by project and by critic.</p>
+      </section>
+
+      <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <div style="border-left: 3px solid #9aa7c2; padding: 4px 0 4px 24px;">
+          <p style="margin: 0 0 10px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #5c6b86;">The design question</p>
+          <p style="margin: 0; font-size: clamp(1.3rem, 2.8vw, 1.75rem); font-weight: 600; line-height: 1.35; letter-spacing: -0.02em; color: #14161c; text-wrap: pretty;">How might we create an interactive, low-friction tool that enables architecture students to develop concepts with greater clarity within the studio environment?</p>
+        </div>
+      </section>
+
+      <section id="research" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 8px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Research</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">We surveyed architecture students about how they find inspiration, where the process gets hard, and what would keep them using a tool.</p>
+
+        <div style="margin-top: clamp(32px, 5vw, 48px);">
+          <h3 style="margin: 0 0 8px; font-size: clamp(1.1rem, 2.2vw, 1.3rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Where inspiration comes from</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">Architecture precedents (94%), social platforms like Pinterest and Instagram (82%), and sketching (71%) were the most common sources across 17 responses.</p>
+          <figure style="margin: 0;">
+            <a href="assets/archlog-survey-inspiration.png" target="_blank" style="display: block; background: #fff; border: 1px solid rgba(30,50,90,0.12); border-radius: 11px; padding: clamp(12px, 2.5vw, 24px); box-shadow: 0 18px 40px -34px rgba(45,60,95,0.5);"><img src="assets/archlog-survey-inspiration.png" alt="Bar chart: what students use for inspiration. Architecture precedents 94.1%, Pinterest/Instagram 82.4%, sketching 70.6%, HCAD library 41.2%, architecture magazines 35.3%, AI tools 17.6%" style="display: block; width: 100%; height: auto;"></a>
+          </figure>
+        </div>
+
+        <div style="margin-top: clamp(32px, 5vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(20px, 3vw, 28px);">
+          <div>
+            <h3 style="margin: 0 0 8px; font-size: clamp(1.1rem, 2.2vw, 1.3rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">The hardest part</h3>
+            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">Iteration (45%) and developing concepts (36%) topped the list, followed by explaining the design (18%).</p>
+            <a href="assets/archlog-survey-difficulty.png" target="_blank" style="display: block; background: #fff; border: 1px solid rgba(30,50,90,0.12); border-radius: 11px; padding: clamp(10px, 2vw, 18px); box-shadow: 0 18px 40px -34px rgba(45,60,95,0.5);"><img src="assets/archlog-survey-difficulty.png" alt="Pie chart: hardest part of the design process. Iteration 45.5%, developing concepts 36.4%, explaining your design 18.2%" style="display: block; width: 100%; height: auto;"></a>
+          </div>
+          <div>
+            <h3 style="margin: 0 0 8px; font-size: clamp(1.1rem, 2.2vw, 1.3rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">What keeps students coming back</h3>
+            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">Over half (55%) said skill improvement would motivate consistent use, ahead of studio performance and gamification (18% each).</p>
+            <a href="assets/archlog-survey-motivation.png" target="_blank" style="display: block; background: #fff; border: 1px solid rgba(30,50,90,0.12); border-radius: 11px; padding: clamp(10px, 2vw, 18px); box-shadow: 0 18px 40px -34px rgba(45,60,95,0.5);"><img src="assets/archlog-survey-motivation.png" alt="Pie chart: what would motivate consistent use. Skill improvement 54.5%, better studio performance 18.2%, competition/gamification 18.2%, feedback 9.1%" style="display: block; width: 100%; height: auto;"></a>
+          </div>
+        </div>
+
+        <div style="margin-top: clamp(40px, 6vw, 60px);">
+          <h3 style="margin: 0 0 8px; font-size: clamp(1.1rem, 2.2vw, 1.3rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Choosing a concept</h3>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">Four participants ranked seven concepts. The Design Decision Tracker ranked first with an average of 1.75, well ahead of Precedent Deconstruction (4.0).</p>
+          <figure style="margin: 0 calc(-1 * clamp(0px, (100vw - 720px) / 2, 160px));">
+            <a href="assets/archlog-concept-ranking.png" target="_blank" style="display: block; background: #fff; border: 1px solid rgba(30,50,90,0.12); border-radius: 11px; padding: clamp(10px, 2vw, 18px); box-shadow: 0 18px 40px -34px rgba(45,60,95,0.5);"><img src="assets/archlog-concept-ranking.png" alt="Concept ranking table from four participants. Design Decision Tracker ranked 1st (average 1.75), Precedent Deconstruction 2nd (4), Constraint Curator, Swap Simulator and Peer Challenge Platform tied 3rd (4.25), Starting Prompt Injector 4th (4.5), Ideation Gym 5th (5)" style="display: block; width: 100%; height: auto;"></a>
+            <figcaption style="margin: 12px 2px 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #9aa2b2;">Click any chart to open full size</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="process" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 8px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Process</h2>
+        <p style="margin: 0; font-size: 15px; color: #6a7591;">How the structure evolved, from a first flow and app map to a refined flow, wireframes, and high-fidelity screens.</p>
+
+        <div style="margin-top: clamp(36px, 6vw, 60px);">
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">01</span>
+            <h3 style="margin: 0; font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Initial user flow</h3>
+          </div>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">The first pass: from the dashboard, four paths: start a new project, log a decision, preview the timeline, and review the current project.</p>
+          <figure style="margin: 0 calc(-1 * clamp(0px, (100vw - 720px) / 2, 160px));">
+            <a href="assets/archlog-flow-initial.png" target="_blank" style="display: block; background: #fff; border: 1px solid rgba(30,50,90,0.12); border-radius: 11px; padding: clamp(12px, 2.5vw, 28px); box-shadow: 0 18px 40px -34px rgba(45,60,95,0.5); transition: box-shadow 0.3s ease;" style-hover="box-shadow: 0 24px 48px -30px rgba(45,60,95,0.55);"><img src="assets/archlog-flow-initial.png" alt="Initial user flow for the Design Decision Tracker: dashboard branches to start new project, log a decision, timeline preview, and current project preview" style="display: block; width: 100%; height: auto;"></a>
+            <figcaption style="margin: 12px 2px 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #9aa2b2;">Click to open full size</figcaption>
+          </figure>
+        </div>
+
+        <div style="margin-top: clamp(36px, 6vw, 60px);">
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">02</span>
+            <h3 style="margin: 0; font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Information architecture</h3>
+          </div>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">How the app is structured: the dashboard branches into four areas: new project, log a decision, timeline preview, and project summary &amp; sharing.</p>
+          <figure style="margin: 0 calc(-1 * clamp(0px, (100vw - 720px) / 2, 160px));">
+            <a href="assets/archlog-ia.png" target="_blank" style="display: block; background: #fff; border: 1px solid rgba(30,50,90,0.12); border-radius: 11px; padding: clamp(12px, 2.5vw, 28px); box-shadow: 0 18px 40px -34px rgba(45,60,95,0.5); transition: box-shadow 0.3s ease;" style-hover="box-shadow: 0 24px 48px -30px rgba(45,60,95,0.55);"><img src="assets/archlog-ia.png" alt="Information architecture for the Design Decision Tracker: dashboard branches to new project, log a decision, timeline preview, and project summary and sharing" style="display: block; width: 100%; height: auto;"></a>
+            <figcaption style="margin: 12px 2px 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #9aa2b2;">Click to open full size</figcaption>
+          </figure>
+        </div>
+
+        <div style="margin-top: clamp(36px, 6vw, 60px);">
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">03</span>
+            <h3 style="margin: 0; font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Refined user flow</h3>
+          </div>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">The refined flow from the dashboard: starting a project, logging a decision, generating a design narrative from the timeline, and sharing a project summary.</p>
+          <figure style="margin: 0 calc(-1 * clamp(0px, (100vw - 720px) / 2, 160px));">
+            <a href="assets/archlog-flow-refined.png" target="_blank" style="display: block; background: #fff; border: 1px solid rgba(30,50,90,0.12); border-radius: 11px; padding: clamp(12px, 2.5vw, 28px); box-shadow: 0 18px 40px -34px rgba(45,60,95,0.5); transition: box-shadow 0.3s ease;" style-hover="box-shadow: 0 24px 48px -30px rgba(45,60,95,0.55);"><img src="assets/archlog-flow-refined.png" alt="ArchLog refined user flow: from the dashboard, color-coded paths for starting a new project, logging a decision, previewing the timeline and generating a design narrative, and sharing or exporting a project summary" style="display: block; width: 100%; height: auto;"></a>
+            <figcaption style="margin: 12px 2px 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #9aa2b2;">Click to open full size</figcaption>
+          </figure>
+        </div>
+
+        <div style="margin-top: clamp(36px, 6vw, 60px);">
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">04</span>
+            <h3 style="margin: 0; font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Low-fidelity wireframes</h3>
+          </div>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">The refined flow translated into five core screens: the dashboard, starting a project, logging a decision, reviewing a version, and generating a project summary.</p>
+          <div style="margin: 0 calc(-1 * clamp(0px, (100vw - 720px) / 2, 160px)); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px;">
+            <a href="assets/archlog-lofi-dashboard.png" target="_blank" style="grid-column: span 3; display: block; overflow: hidden; background: #fff8ee;"><img src="assets/archlog-lofi-dashboard.png" alt="Low-fidelity dashboard with decision input, timelines, recent thinking, tags, and last thoughts" style="display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; transition: transform 0.4s ease;" style-hover="transform: scale(1.03);"></a>
+            <a href="assets/archlog-lofi-new-project.png" target="_blank" style="grid-column: span 3; display: block; overflow: hidden; background: #fff8ee;"><img src="assets/archlog-lofi-new-project.png" alt="Low-fidelity new project screen with name, studio prompt, constraints, and context" style="display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; transition: transform 0.4s ease;" style-hover="transform: scale(1.03);"></a>
+            <a href="assets/archlog-lofi-log-decision.png" target="_blank" style="grid-column: span 2; display: block; overflow: hidden; background: #fff8ee;"><img src="assets/archlog-lofi-log-decision.png" alt="Low-fidelity log a decision screen with structured decision, rationale, implications, and past decisions" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top left; transition: transform 0.4s ease;" style-hover="transform: scale(1.03);"></a>
+            <a href="assets/archlog-lofi-timeline.png" target="_blank" style="grid-column: span 2; display: block; overflow: hidden; background: #fff8ee;"><img src="assets/archlog-lofi-timeline.png" alt="Low-fidelity version review showing what changed, a design snapshot, and things to test" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top left; transition: transform 0.4s ease;" style-hover="transform: scale(1.03);"></a>
+            <a href="assets/archlog-lofi-summary.png" target="_blank" style="grid-column: span 2; display: block; overflow: hidden; background: #fff8ee;"><img src="assets/archlog-lofi-summary.png" alt="Low-fidelity project summary with decision blocks, narrative, tone, and export options" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top left; transition: transform 0.4s ease;" style-hover="transform: scale(1.03);"></a>
+          </div>
+          <p style="margin: 12px 2px 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #9aa2b2;">Click any screen to open full size</p>
+        </div>
+
+        <div style="margin-top: clamp(36px, 6vw, 60px);">
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">05</span>
+            <h3 style="margin: 0; font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">High-fidelity screens</h3>
+          </div>
+          <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">Each project is organized into four tabs: Project Overview, Log Decision, Decision History, and Narrative Builder. The overview holds the brief, constraints, milestones, notes, and reflection prompts. Log Decision captures a decision in plain language and surfaces related past ones. Decision History lists every entry with tags and filters, and the Narrative Builder turns selected decisions into a critique-ready narrative. A profile page collects each student's projects and lets them share public ones.</p>
+          <div style="position: relative; margin: 0 calc(-1 * clamp(0px, (100vw - 720px) / 2, 160px));">
+            <div ref="{{ trackRef }}" onScroll="{{ onTrackScroll }}" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; border-radius: 11px; background: #f3f4f7;">
+              <sc-for list="{{ slides }}" as="s" hint-placeholder-count="5">
+                <figure style="flex: 0 0 100%; scroll-snap-align: center; margin: 0; padding: clamp(16px, 3vw, 32px) clamp(48px, 7vw, 72px) clamp(44px, 5vw, 56px); box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+                  <a href="{{ s.src }}" target="_blank" style="display: block;"><img src="{{ s.src }}" alt="{{ s.alt }}" style="display: block; max-width: 100%; height: clamp(320px, 58vw, 620px); width: auto; object-fit: contain; border-radius: 6px; box-shadow: 0 18px 40px -30px rgba(45,60,95,0.55);"></a>
+                  <figcaption style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #6a7591;">{{ s.label }}</figcaption>
+                </figure>
+              </sc-for>
+            </div>
+            <button type="button" aria-label="Previous screen" onClick="{{ prev }}" disabled="{{ atStart }}" style="position: absolute; left: 12px; top: 45%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.92); box-shadow: 0 6px 18px -8px rgba(30,50,90,0.4); color: #14161c; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #fff;">‹</button>
+            <button type="button" aria-label="Next screen" onClick="{{ next }}" disabled="{{ atEnd }}" style="position: absolute; right: 12px; top: 45%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.92); box-shadow: 0 6px 18px -8px rgba(30,50,90,0.4); color: #14161c; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #fff;">›</button>
+            <div style="position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 8px;">
+              <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+                <button type="button" aria-label="{{ d.label }}" onClick="{{ d.go }}" style="width: {{ d.w }}; height: 8px; padding: 0; border: 0; border-radius: 4px; background: {{ d.bg }}; cursor: pointer; transition: width 0.25s ease, background 0.25s ease;"></button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="decisions" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 8px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Key decisions</h2>
+        <p style="margin: 0 0 36px; font-size: 15px; color: #6a7591;">The core of the work. Each one follows the same path: Research → Insight → Decision → Outcome.</p>
+      </section>
+
+    </div>
+
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px); display: flex; flex-direction: column; gap: clamp(28px, 4vw, 44px);">
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); ">
+        <div style="padding: 0 0 clamp(22px, 3vw, 28px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">01</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">What counts as a decision worth logging</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Research</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Decision-making lived entirely in students’ heads. Ideas surfaced in fragments (sketches, conversations, “shower thoughts”) and rarely survived to critique in a form anyone could point back to.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Insight</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Students needed external scaffolding for their reasoning, so a decision has a record the moment it’s made, not weeks later.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">We pushed to make decision logging the core primitive of the tool: capture what changed, why, and what it improves or trades off, rather than a generic notes field.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Outcome</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">The Design Decision Tracker concept topped focus-group rankings: 3 of 4 participants picked it as their top choice out of seven concepts tested.</dd></div>
+          </dl>
+        </div>
+        
+      </article>
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); ">
+        <div style="padding: 0 0 clamp(22px, 3vw, 28px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">02</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Low-effort capture during studio work</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Research</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">2 in 3 surveyed students said their approach “depends on the project.” There’s no shared method, and studio schedules leave no room for a tool that adds friction.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Insight</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">The log had to be light enough to use mid-project, not just as a pre-deadline scramble.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">We paired decision logging with a project overview so students upload visuals for each decision, keeping the iteration and its rationale in the same place rather than a separate tool.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Outcome</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">This visual-plus-rationale pairing was one of the two directions pressure-tested in A/B usability studies with students and Prof. Bonomi before being carried forward.</dd></div>
+          </dl>
+        </div>
+        
+      </article>
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); ">
+        <div style="padding: 0 0 clamp(22px, 3vw, 28px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">03</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Retrieval and review for critiques</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Research</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">7 of 17 surveyed students named concept development as the hardest phase, and critique is exactly where the gap showed up: without a record of <em style="color:#5c6b86;">why</em>, students reconstruct their narrative from memory hours before review.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Insight</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">The burden of proof needed to move from memory to a persistent record, so students walk into reviews prepared, not panicked.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">We designed the design-narratives feature to generate a critique-ready story directly from the decision log.</dd></div>
+            <div><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;"></dd></div>
+          </dl>
+        </div>
+        
+      </article>
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); ">
+        <div style="padding: 0 0 clamp(22px, 3vw, 28px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">04</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Structure that fits how reviews run</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Research</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Constraints were repeatedly described by students as “creative fuel,” not a limitation, but studio culture rewards adaptability without giving anyone a structure to lean on.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Insight</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">The tool needed a full loop: capture, narrate, act on feedback, carry the record forward.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">We rounded the tool out with task management (tracking feedback and action items from crits) and designer profiles (exporting projects so crits can follow the thinking), extending structure past the log itself.</dd></div>
+            <div><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;"></dd></div>
+          </dl>
+        </div>
+        
+      </article>
+    </div>
+
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+
+      <section id="outcome" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Outcome</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">Of seven concepts tested, the Design Decision Tracker won by a wide margin, confirming the research insight that architecture students’ gap isn’t ideation, it’s traceability.</p>
+      </section>
+
+      <section id="reflection" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px); margin-bottom: clamp(60px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Reflection</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">This project taught me that the most useful research finding can reframe the problem itself. We set out to help students generate ideas, but the data pointed to traceability instead. With a 4-week timeline and a small participant pool, we tested concepts more than the finished prototype. It reinforced the value of truly listening to users and refining what will benefit them in the long term.</p>
+      </section>
+
+    </div>
+
+    <section id="prototype" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); max-width: 1120px; margin: clamp(56px, 8vw, 88px) auto clamp(56px, 8vw, 88px); padding: 0 clamp(22px, 4vw, 40px);">
+      <h2 style="margin: 0 0 22px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Prototype walkthrough</h2>
+      <div style="width: 100%; aspect-ratio: 16 / 9; border-radius: 22px; overflow: hidden; background: #0f1115; box-shadow: 0 24px 50px -30px rgba(45,60,95,0.5);"><iframe src="https://www.youtube.com/embed/MFQMie-cix0?rel=0" referrerpolicy="strict-origin-when-cross-origin" title="Archlog prototype walkthrough video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="" style="display: block; width: 100%; height: 100%; border: 0;"></iframe></div>
+      <a href="https://youtu.be/MFQMie-cix0" target="_blank" rel="noopener" style="display: inline-flex; margin: 12px 2px 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #6a7591; text-decoration: none;" style-hover="color: #3357c9;">Watch on YouTube ↗</a>
+    </section>
+
+    <nav aria-label="More projects" style="max-width: 760px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px) clamp(30px, 5vw, 60px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px;">
+      <a href="CaseStudy-Thearis.dc.html" style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 14px 20px; border: 1px solid rgba(30,50,90,0.12); border-radius: 14px; text-decoration: none; background: #fbfcfe; transition: transform 0.4s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.4s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 24px 44px -30px rgba(45,60,95,0.5);"><span aria-hidden="true" style="font-size: 18px; color: #5c6b86;">←</span><span style="text-align: right;"><span style="display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6a7591;">Previous project</span><span style="display: block; margin-top: 3px; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Thearis</span></span></a>
+      <a href="CaseStudy-Chimera.dc.html" style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 14px 20px; border: 1px solid rgba(30,50,90,0.12); border-radius: 14px; text-decoration: none; background: #fbfcfe; transition: transform 0.4s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.4s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 24px 44px -30px rgba(45,60,95,0.5);"><span style=""><span style="display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6a7591;">Next project</span><span style="display: block; margin-top: 3px; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Chimera</span></span><span aria-hidden="true" style="font-size: 18px; color: #5c6b86;">→</span></a>
+    </nav>
+
+  </main>
+
+  <footer style="position: relative; overflow: hidden; background: #ffffff; border-top: 1px solid rgba(30,50,90,0.09);">
+    <div style="max-width: 1120px; margin: 0 auto; padding: clamp(32px, 4.7vw, 50px) clamp(22px, 4vw, 40px) clamp(21px, 3.2vw, 29px); position: relative;">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <p style="margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; letter-spacing: -0.03em; color: #14161c;">Aliyah Panjon</p>
+          <p style="margin: 6px 0 0; font-size: 1.05rem; color: #4a586c;">UX/UI Designer</p>
+          <p style="margin: 20px 0 0; font-size: 1.05rem; color: #4a586c; max-width: 340px; text-wrap: pretty;">Have a project in mind, or just want to say hi? I'd love to hear from you.</p>
+        </div>
+        <nav aria-label="Contact and links" style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+          <a href="mailto:aliyahpanjon07@gmail.com" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">aliyahpanjon07@gmail.com →</a>
+          <a href="https://www.linkedin.com/in/aliyah-e-panjon/" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">LinkedIn →</a>
+          <a href="https://github.com/Aliyah07Pan" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">GitHub →</a>
+          <a href="https://drive.google.com/file/d/1RqPw23uk4WzAJzDFvYxji89rrciK0QHw/view?usp=sharing" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">Resume →</a>
+        </nav>
+      </div>
+      <div style="display: flex; flex-wrap: wrap-reverse; gap: 20px 40px; justify-content: space-between; align-items: center; margin-top: clamp(26px, 4.2vw, 42px); padding-top: 15px; border-top: 1px solid rgba(30,50,90,0.1);">
+        <p style="margin: 0; font-size: 13px; color: #6a7591;">© 2027 Aliyah Panjon · Designed &amp; built with care</p>
+        <img src="assets/bear-reading.png" alt="" aria-hidden="true" style="width: 84px; height: auto; opacity: 0.92;">
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  containerRef = React.createRef();
+  navRef = React.createRef();
+  trackRef = React.createRef();
+  raf = 0;
+  tocRef = React.createRef();
+  tocIds = ["overview","impact","challenge","research","process","decisions","outcome","reflection","prototype"];
+  tocActive = null;
+  updateToc = () => {
+    const toc = this.tocRef.current, c = this.containerRef.current;
+    if (!toc || !c) return;
+    const hdr = c.querySelector("main header");
+    const show = hdr ? hdr.getBoundingClientRect().bottom < 60 : false;
+    toc.style.opacity = show ? "1" : "0";
+    toc.style.transform = show ? "none" : "translateY(-8px)";
+    toc.style.pointerEvents = show ? "auto" : "none";
+    let active = null;
+    this.tocIds.forEach((id) => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top < 150) active = id; });
+    if (active === this.tocActive) return;
+    this.tocActive = active;
+    const sc = toc.querySelector("[data-toc-scroller]");
+    toc.querySelectorAll("[data-toc-link]").forEach((a) => {
+      const on = a.getAttribute("data-toc-link") === active;
+      a.style.background = on ? "rgba(30,50,90,0.06)" : "transparent";
+      a.style.color = on ? "#17181c" : "#3a3b43";
+      a.style.fontWeight = on ? "600" : "500";
+      if (on) { a.setAttribute("aria-current", "location"); if (sc) sc.scrollTo({ left: a.offsetLeft - sc.clientWidth / 2 + a.offsetWidth / 2, behavior: "smooth" }); }
+      else a.removeAttribute("aria-current");
+    });
+  };
+  state = { slide: 0 };
+  slides = [
+    { src: "assets/archlog-hifi-overview.png", label: "Project overview", alt: "High-fidelity Project Overview: decision stats, project brief, key constraints, milestones, notes, and reflection" },
+    { src: "assets/archlog-hifi-log.png", label: "Log decision", alt: "High-fidelity Log Decision: free-text entry with Major flag, tags, references, file upload, and relevant past decisions" },
+    { src: "assets/archlog-hifi-history.png", label: "Decision history", alt: "High-fidelity Decision History: filters, chronological or by-milestone toggle, and tagged decision cards" },
+    { src: "assets/archlog-hifi-narrative.png", label: "Narrative builder", alt: "High-fidelity Narrative Builder: audience, tone, framing, image balance, length, and decision filters" },
+    { src: "assets/archlog-hifi-profile.png", label: "Profile", alt: "High-fidelity student profile: bio, counts, and public and private project cards" }
+  ];
+  goTo = (i) => {
+    const el = this.trackRef.current; if (!el) return;
+    const n = Math.max(0, Math.min(this.slides.length - 1, i));
+    el.scrollTo({ left: n * el.clientWidth });
+    this.setState({ slide: n });
+  };
+  onTrackScroll = () => {
+    const el = this.trackRef.current; if (!el) return;
+    const n = Math.round(el.scrollLeft / el.clientWidth);
+    if (n !== this.state.slide) this.setState({ slide: n });
+  };
+
+  onScroll = () => {
+    if (this.raf) return;
+    this.raf = requestAnimationFrame(() => {
+      this.raf = 0;
+      const nav = this.navRef.current;
+      if (!nav) return;
+      const t = Math.min((window.scrollY || 0) / 120, 1);
+      nav.style.boxShadow = "0 " + (t * 8).toFixed(1) + "px " + (t * 20).toFixed(1) + "px rgba(30,50,90," + (t * 0.07).toFixed(3) + ")";
+    });
+  };
+
+  componentDidMount() {
+    const c = this.containerRef.current;
+    this.reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    this.onScroll();
+    const reveals = c ? Array.from(c.querySelectorAll("[data-reveal]")) : [];
+    if (this.reduced || !("IntersectionObserver" in window)) {
+      reveals.forEach((el) => { el.style.opacity = "1"; el.style.transform = "none"; });
+      return;
+    }
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.style.opacity = "1";
+          en.target.style.transform = "none";
+          this.io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    reveals.forEach((el) => this.io.observe(el));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+    if (this.io) this.io.disconnect();
+    if (this.raf) cancelAnimationFrame(this.raf);
+  }
+
+  renderVals() {
+    const cur = this.state.slide;
+    return {
+      containerRef: this.containerRef, navRef: this.navRef, tocRef: this.tocRef, trackRef: this.trackRef,
+      slides: this.slides, onTrackScroll: this.onTrackScroll,
+      prev: () => this.goTo(cur - 1), next: () => this.goTo(cur + 1),
+      atStart: cur === 0, atEnd: cur === this.slides.length - 1,
+      dots: this.slides.map((s, i) => ({ label: "Show " + s.label, go: () => this.goTo(i), w: i === cur ? "22px" : "8px", bg: i === cur ? "#14161c" : "rgba(20,22,28,0.22)" }))
+    };
+  }
+}
+</script>
+</body>
+</html>

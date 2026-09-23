@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..800;1,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: #17181c; font-family: "Figtree", system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; background: #ffffff; }
+  * { box-sizing: border-box; }
+  ::selection { background: #c6d5ec; }
+  a { color: #3357c9; }
+  a:hover { color: #22357d; }
+  @media (max-width: 520px) {
+    #nav-brand { font-size: 0 !important; }
+    #nav-brand::after { content: "AP"; font-size: 15px; font-weight: 700; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</helmet>
+<div ref="{{ containerRef }}" id="top" style="position: relative; overflow-x: clip;">
+
+  <nav ref="{{ navRef }}" id="nav" aria-label="Primary" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px clamp(20px, 4vw, 44px); background: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(30,50,90,0.09); backdrop-filter: saturate(1.6) blur(16px); -webkit-backdrop-filter: saturate(1.6) blur(16px); transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
+    <a href="Portfolio.dc.html#top" id="nav-brand" style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: #17181c; text-decoration: none;"><b>AP</b></a>
+    <div style="display: flex; align-items: center; gap: clamp(4px, 1vw, 10px);">
+      <a href="Portfolio.dc.html#top" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">Home</a>
+      <a href="AboutMe.dc.html" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">About me</a>
+      <a href="Portfolio.dc.html#projects" aria-current="page" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: #17181c; background: rgba(30,50,90,0.06); text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">Projects</a>
+      <a href="https://drive.google.com/file/d/1RqPw23uk4WzAJzDFvYxji89rrciK0QHw/view?usp=sharing" target="_blank" rel="noopener" aria-label="Resume (PDF)" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/aliyah-e-panjon/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg>
+      </a>
+    </div>
+  </nav>
+
+<main style="padding-top: 54px;">
+
+    <header style="max-width: 860px; margin: 0 auto; padding: clamp(52px, 9vw, 96px) clamp(22px, 4vw, 40px) clamp(30px, 5vw, 52px);">
+      <a href="Portfolio.dc.html#projects" data-reveal="" style="opacity: 0; transform: translateY(16px); transition: opacity 0.6s cubic-bezier(0.2,0.7,0.2,1), transform 0.6s cubic-bezier(0.2,0.7,0.2,1); display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #5c6b86; text-decoration: none;" style-hover="color: #22357d;"><span aria-hidden="true">←</span> All projects</a>
+      <p data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.05s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.05s; margin: 30px 0 16px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5c6b86;">Chimera · Team project</p>
+      <h1 data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s; margin: 0; font-size: clamp(2.1rem, 5.4vw, 3.5rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; color: #14161c; text-wrap: balance;">What a user needs in the five seconds after a security alert</h1>
+      <p data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.16s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.16s; margin: 26px 0 0; font-size: clamp(1.08rem, 2vw, 1.3rem); line-height: 1.6; color: #3f4a5c; max-width: 66ch; text-wrap: pretty;">Chimera’s creator, Jay, had built his own security camera app, and could no longer make it make sense to anyone but himself. We audited the existing UI and ran usability testing with 6 participants across five core tasks; we rebuilt the flows around what those sessions surfaced: users needed visual confirmation of what the system had just done (logging in, refreshing, deleting), and the app’s own vocabulary (“scrubber,” “thumbnail”) was working against them, not for them.</p>
+    </header>
+
+    <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); max-width: 860px; margin: 0 auto 16px; padding: 0 clamp(22px, 4vw, 40px);">
+      <div style="border: 1px solid rgba(30,50,90,0.12); border-radius: 16px; background: #fbfcfe; padding: clamp(20px, 3vw, 28px); display: flex; flex-direction: column; gap: 16px;">
+        <p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">TL;DR</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 20px 28px;">
+          <div><p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: #5c6b86;">Problem</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 500; line-height: 1.55; color: #14161c; text-wrap: pretty;">Chimera’s creator built the app himself, and first-time users couldn’t make sense of it.</p></div>
+          <div><p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: #5c6b86;">My role</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 500; line-height: 1.55; color: #14161c; text-wrap: pretty;">UX design and research on a team of three: UI audit, usability testing with 6 participants, and the redesigned flows.</p></div>
+          <div><p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: #5c6b86;">Outcome</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 500; line-height: 1.55; color: #14161c; text-wrap: pretty;">6 of 6 participants deleted a video without help; confusing terms were renamed and a mobile registration flow was added.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); max-width: 860px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: rgba(30,50,90,0.12); border: 1px solid rgba(30,50,90,0.12); border-radius: 16px; overflow: hidden;">
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Role</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">UX Design and Research</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Team</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Amy Ruiz, Hannah Repuyan, me</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Timeline</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">3 weeks</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Tools</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Figma</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Platform</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Mobile app</p></div>
+      </div>
+    </section>
+
+
+    <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); max-width: 1120px; margin: clamp(44px, 7vw, 80px) auto 0; padding: 0 clamp(22px, 4vw, 40px);">
+      <div style="width: 100%; border-radius: 22px; background: linear-gradient(160deg, #e9eefb, #f4f6fc); box-shadow: 0 24px 50px -30px rgba(45,60,95,0.5); display: flex; justify-content: center; align-items: center; gap: clamp(16px, 5vw, 64px); padding: clamp(28px, 5vw, 56px) clamp(16px, 4vw, 40px); box-sizing: border-box;"><img src="assets/chimera-hero-home.png" alt="Chimera redesigned home screen with live Front Door feed and quick actions for Footage, Theme, Storage, and Live" style="display: block; width: clamp(130px, 26vw, 260px); height: auto; filter: drop-shadow(0 20px 30px rgba(45,60,95,0.22));"><img src="assets/chimera-hero-storage.png" alt="Chimera storage screen with a donut chart of 24 GB used by camera and a list of large files" style="display: block; width: clamp(130px, 26vw, 260px); height: auto; filter: drop-shadow(0 20px 30px rgba(45,60,95,0.22));"></div>
+    </section>
+
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+
+      <section id="overview" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Overview</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">Chimera is a security camera app that needed to work for first-time users, not just its creator. The redesign had to stay mobile-first and stay within Chimera’s frame-based system (not a full DVR-style video interface), and add a mobile registration flow that didn’t exist yet.</p>
+      </section>
+
+      <section id="impact" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Impact</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px;">
+          <li style="display: flex; gap: 13px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.6; color: #3f4a5c;"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5c6b86;"></span><span>100% (6/6) of usability participants completed the video-deletion task without assistance after the redesign.</span></li>
+          <li style="display: flex; gap: 13px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.6; color: #3f4a5c;"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5c6b86;"></span><span>Renamed “Scrubber” → “Footage” and “Generate Thumbnails” → “Generate Frames” after participants repeatedly stumbled on the app’s internal jargon (“I don’t know what a scrubber is. Once I got past that, it was easy.” P3).</span></li>
+          <li style="display: flex; gap: 13px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.6; color: #3f4a5c;"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5c6b86;"></span><span>Designed a mobile registration and role-based login flow that didn’t previously exist, closing a gap the app’s own creator had flagged.</span></li>
+        </ul>
+      </section>
+
+      <section id="challenge" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">The challenge</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">The founder had designed and built Chimera himself, and it showed: the interface made sense to him but not to first-time users. Any redesign had a hard constraint: it had to work within Chimera’s frame-based system, not become a full DVR-style video interface, and the mobile version needed a registration and login flow built from nothing.</p>
+      </section>
+
+      <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <div style="border-left: 3px solid #9aa7c2; padding: 4px 0 4px 24px;">
+          <p style="margin: 0 0 10px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #5c6b86;">The design question</p>
+          <p style="margin: 0; font-size: clamp(1.3rem, 2.8vw, 1.75rem); font-weight: 600; line-height: 1.35; letter-spacing: -0.02em; color: #14161c; text-wrap: pretty;">How might we make Chimera intuitive for first-time users without abandoning the frame-based system it was already built on?</p>
+        </div>
+      </section>
+
+      <section id="decisions" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 8px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Key decisions</h2>
+        <p style="margin: 0 0 36px; font-size: 15px; color: #6a7591;">The core of the work. Each one follows the same path: Research → Insight → Decision → Outcome.</p>
+      </section>
+
+    </div>
+
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px); display: flex; flex-direction: column; gap: clamp(32px, 4vw, 48px);">
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); border-top: 1px solid rgba(30,50,90,0.12); padding-top: clamp(32px, 4vw, 48px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">01</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Alert to action</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Research</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">There was no visual indicator of a successful login, and the homescreen had no clear hierarchy. An overloaded left nav and unbalanced layout left users unsure where to start.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Insight</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">In the moment a user actually opens this app, right after an alert, every extra second of confusion matters.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">We moved navigation to the bottom of the screen for one-handed mobile use, simplified camera switching from the main nav, and restructured the homescreen into a dashboard.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Outcome</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">50% (3/6) of usability participants said they wanted a clearer visual confirmation after logging in, which was logged as a priority for the next iteration.</dd></div>
+          </dl>
+          <figure style="margin: 30px 0 0;">
+            <div style="display: flex; flex-wrap: wrap; gap: clamp(16px, 3vw, 30px); justify-content: center;">
+              <div style="flex: 0 1 154px; max-width: 172px; min-width: 132px;"><div style="position: relative; width: 100%; aspect-ratio: 936 / 1940;"><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 15%; width: 2px; height: 3.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 23%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 31.5%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; right: -1.5px; top: 25%; width: 2px; height: 9.5%; background: #5a5b60; border-radius: 1px;"></div><div style="position: relative; width: 100%; height: 100%; background: #0b0b0d; border-radius: 16% / 7.7%; padding: 4%; box-sizing: border-box; box-shadow: 0 22px 42px -18px rgba(20,30,70,0.5);"><div style="position: relative; width: 100%; height: 100%; border-radius: 13% / 6.1%; overflow: hidden; background: #fff; display: flex; flex-direction: column;"><div aria-hidden="true" style="position: relative; flex: 0 0 auto; height: 11%; display: flex; align-items: center; justify-content: space-between; padding: 0 11% 0 13%; box-sizing: border-box; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: clamp(8px, 0.62vw, 10px); font-weight: 600; color: #0b0b0d;"><span>9:41</span><span style="position: absolute; left: 50%; top: 22%; transform: translateX(-50%); width: 33%; height: 34%; background: #0b0b0d; border-radius: 999px;"></span><svg width="30%" viewBox="0 0 46 12" style="display: block; max-width: 34px;"><rect x="0" y="7" width="3" height="4" rx="0.8" fill="#0b0b0d"></rect><rect x="4.5" y="5" width="3" height="6" rx="0.8" fill="#0b0b0d"></rect><rect x="9" y="3" width="3" height="8" rx="0.8" fill="#0b0b0d"></rect><rect x="13.5" y="1" width="3" height="10" rx="0.8" fill="#0b0b0d"></rect><path d="M20.5 4.2a7 7 0 0 1 9 0M22.4 6.6a4 4 0 0 1 5.2 0" stroke="#0b0b0d" stroke-width="1.6" fill="none" stroke-linecap="round"></path><circle cx="25" cy="9.6" r="1.2" fill="#0b0b0d"></circle><rect x="33" y="2" width="11" height="8" rx="2.2" fill="none" stroke="#0b0b0d" stroke-width="1"></rect><rect x="34.5" y="3.5" width="8" height="5" rx="1.2" fill="#0b0b0d"></rect><rect x="44.6" y="4.8" width="1.2" height="2.6" rx="0.6" fill="#0b0b0d"></rect></svg></div><img src="assets/chimera-screen-1.png" alt="Chimera entry screen with Login and Sign-up" style="display: block; width: 100%; flex: 1 1 0; min-height: 0; object-fit: cover; object-position: top;"></div></div></div></div>
+              <div style="flex: 0 1 154px; max-width: 172px; min-width: 132px;"><div style="position: relative; width: 100%; aspect-ratio: 936 / 1940;"><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 15%; width: 2px; height: 3.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 23%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 31.5%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; right: -1.5px; top: 25%; width: 2px; height: 9.5%; background: #5a5b60; border-radius: 1px;"></div><div style="position: relative; width: 100%; height: 100%; background: #0b0b0d; border-radius: 16% / 7.7%; padding: 4%; box-sizing: border-box; box-shadow: 0 22px 42px -18px rgba(20,30,70,0.5);"><div style="position: relative; width: 100%; height: 100%; border-radius: 13% / 6.1%; overflow: hidden; background: #fff; display: flex; flex-direction: column;"><div aria-hidden="true" style="position: relative; flex: 0 0 auto; height: 11%; display: flex; align-items: center; justify-content: space-between; padding: 0 11% 0 13%; box-sizing: border-box; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: clamp(8px, 0.62vw, 10px); font-weight: 600; color: #0b0b0d;"><span>9:41</span><span style="position: absolute; left: 50%; top: 22%; transform: translateX(-50%); width: 33%; height: 34%; background: #0b0b0d; border-radius: 999px;"></span><svg width="30%" viewBox="0 0 46 12" style="display: block; max-width: 34px;"><rect x="0" y="7" width="3" height="4" rx="0.8" fill="#0b0b0d"></rect><rect x="4.5" y="5" width="3" height="6" rx="0.8" fill="#0b0b0d"></rect><rect x="9" y="3" width="3" height="8" rx="0.8" fill="#0b0b0d"></rect><rect x="13.5" y="1" width="3" height="10" rx="0.8" fill="#0b0b0d"></rect><path d="M20.5 4.2a7 7 0 0 1 9 0M22.4 6.6a4 4 0 0 1 5.2 0" stroke="#0b0b0d" stroke-width="1.6" fill="none" stroke-linecap="round"></path><circle cx="25" cy="9.6" r="1.2" fill="#0b0b0d"></circle><rect x="33" y="2" width="11" height="8" rx="2.2" fill="none" stroke="#0b0b0d" stroke-width="1"></rect><rect x="34.5" y="3.5" width="8" height="5" rx="1.2" fill="#0b0b0d"></rect><rect x="44.6" y="4.8" width="1.2" height="2.6" rx="0.6" fill="#0b0b0d"></rect></svg></div><img src="assets/chimera-screen-4.png" alt="Regular user login form" style="display: block; width: 100%; flex: 1 1 0; min-height: 0; object-fit: cover; object-position: top;"></div></div></div></div>
+              <div style="flex: 0 1 154px; max-width: 172px; min-width: 132px;"><div style="position: relative; width: 100%; aspect-ratio: 936 / 1940;"><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 15%; width: 2px; height: 3.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 23%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 31.5%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; right: -1.5px; top: 25%; width: 2px; height: 9.5%; background: #5a5b60; border-radius: 1px;"></div><div style="position: relative; width: 100%; height: 100%; background: #0b0b0d; border-radius: 16% / 7.7%; padding: 4%; box-sizing: border-box; box-shadow: 0 22px 42px -18px rgba(20,30,70,0.5);"><div style="position: relative; width: 100%; height: 100%; border-radius: 13% / 6.1%; overflow: hidden; background: #fff; display: flex; flex-direction: column;"><div aria-hidden="true" style="position: relative; flex: 0 0 auto; height: 11%; display: flex; align-items: center; justify-content: space-between; padding: 0 11% 0 13%; box-sizing: border-box; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: clamp(8px, 0.62vw, 10px); font-weight: 600; color: #0b0b0d;"><span>9:41</span><span style="position: absolute; left: 50%; top: 22%; transform: translateX(-50%); width: 33%; height: 34%; background: #0b0b0d; border-radius: 999px;"></span><svg width="30%" viewBox="0 0 46 12" style="display: block; max-width: 34px;"><rect x="0" y="7" width="3" height="4" rx="0.8" fill="#0b0b0d"></rect><rect x="4.5" y="5" width="3" height="6" rx="0.8" fill="#0b0b0d"></rect><rect x="9" y="3" width="3" height="8" rx="0.8" fill="#0b0b0d"></rect><rect x="13.5" y="1" width="3" height="10" rx="0.8" fill="#0b0b0d"></rect><path d="M20.5 4.2a7 7 0 0 1 9 0M22.4 6.6a4 4 0 0 1 5.2 0" stroke="#0b0b0d" stroke-width="1.6" fill="none" stroke-linecap="round"></path><circle cx="25" cy="9.6" r="1.2" fill="#0b0b0d"></circle><rect x="33" y="2" width="11" height="8" rx="2.2" fill="none" stroke="#0b0b0d" stroke-width="1"></rect><rect x="34.5" y="3.5" width="8" height="5" rx="1.2" fill="#0b0b0d"></rect><rect x="44.6" y="4.8" width="1.2" height="2.6" rx="0.6" fill="#0b0b0d"></rect></svg></div><img src="assets/chimera-home.png" alt="Restructured home dashboard with bottom navigation" style="display: block; width: 100%; flex: 1 1 0; min-height: 0; object-fit: cover; object-position: top;"></div></div></div></div>
+            </div>
+            <figcaption style="margin: 18px 2px 0; font-size: 14px; line-height: 1.5; color: #6a7591; text-wrap: pretty; text-align: center;">The redesigned entry, login, and home screens: one clear path in, ending on a dashboard with bottom navigation for one-handed use.</figcaption>
+          </figure>
+          <figure style="margin: 20px 0 0;"><img src="assets/chart-login.png" alt="Survey chart: overall the login process felt intuitive: 6 responses, five rated 5 and one rated 4" style="display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(30,50,90,0.12);"><figcaption style="margin: 10px 2px 0; font-size: 13px; line-height: 1.5; color: #6a7591; text-wrap: pretty;">Post-test survey (6 participants): 5 of 6 rated the login process 5/5 for how intuitive it felt, but the same round flagged the missing login confirmation.</figcaption></figure>
+      </article>
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); border-top: 1px solid rgba(30,50,90,0.12); padding-top: clamp(32px, 4vw, 48px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">02</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Live view vs. recorded footage</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Research</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">On the live screen, there was no clear way to tell which camera was which, and no reliable way to refresh the feed. Separately, the screen for reviewing recorded footage relied on confusing internal terms and its video component disappeared entirely on mobile.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Insight</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Users needed “what’s happening now” separated from “what happened before,” in language they actually understood instead of internal engineering terms.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">We added distinct camera titles and visual blocking plus a labeled “Refresh feed” button on the live screen, and renamed “Scrubber” → “Footage” and “Generate Thumbnails” → “Generate Frames,” restoring the missing video component on mobile.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Outcome</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">“I don’t know what a scrubber is. Once I got past that, it was easy.” (P3). Direct evidence the renaming addressed a real comprehension barrier, not a cosmetic one.</dd></div>
+          </dl>
+          <figure style="margin: 30px 0 0;">
+            <div style="display: flex; flex-wrap: wrap; gap: clamp(16px, 3vw, 30px); justify-content: center;">
+              <div style="flex: 0 1 154px; max-width: 172px; min-width: 132px;"><div style="position: relative; width: 100%; aspect-ratio: 936 / 1940;"><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 15%; width: 2px; height: 3.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 23%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 31.5%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; right: -1.5px; top: 25%; width: 2px; height: 9.5%; background: #5a5b60; border-radius: 1px;"></div><div style="position: relative; width: 100%; height: 100%; background: #0b0b0d; border-radius: 16% / 7.7%; padding: 4%; box-sizing: border-box; box-shadow: 0 22px 42px -18px rgba(20,30,70,0.5);"><div style="position: relative; width: 100%; height: 100%; border-radius: 13% / 6.1%; overflow: hidden; background: #fff; display: flex; flex-direction: column;"><div aria-hidden="true" style="position: relative; flex: 0 0 auto; height: 11%; display: flex; align-items: center; justify-content: space-between; padding: 0 11% 0 13%; box-sizing: border-box; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: clamp(8px, 0.62vw, 10px); font-weight: 600; color: #0b0b0d;"><span>9:41</span><span style="position: absolute; left: 50%; top: 22%; transform: translateX(-50%); width: 33%; height: 34%; background: #0b0b0d; border-radius: 999px;"></span><svg width="30%" viewBox="0 0 46 12" style="display: block; max-width: 34px;"><rect x="0" y="7" width="3" height="4" rx="0.8" fill="#0b0b0d"></rect><rect x="4.5" y="5" width="3" height="6" rx="0.8" fill="#0b0b0d"></rect><rect x="9" y="3" width="3" height="8" rx="0.8" fill="#0b0b0d"></rect><rect x="13.5" y="1" width="3" height="10" rx="0.8" fill="#0b0b0d"></rect><path d="M20.5 4.2a7 7 0 0 1 9 0M22.4 6.6a4 4 0 0 1 5.2 0" stroke="#0b0b0d" stroke-width="1.6" fill="none" stroke-linecap="round"></path><circle cx="25" cy="9.6" r="1.2" fill="#0b0b0d"></circle><rect x="33" y="2" width="11" height="8" rx="2.2" fill="none" stroke="#0b0b0d" stroke-width="1"></rect><rect x="34.5" y="3.5" width="8" height="5" rx="1.2" fill="#0b0b0d"></rect><rect x="44.6" y="4.8" width="1.2" height="2.6" rx="0.6" fill="#0b0b0d"></rect></svg></div><img src="assets/chimera-live.png" alt="Live camera list with named feeds and a Refresh feed control" style="display: block; width: 100%; flex: 1 1 0; min-height: 0; object-fit: cover; object-position: top;"></div></div></div></div>
+              <div style="flex: 0 1 154px; max-width: 172px; min-width: 132px;"><div style="position: relative; width: 100%; aspect-ratio: 936 / 1940;"><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 15%; width: 2px; height: 3.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 23%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 31.5%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; right: -1.5px; top: 25%; width: 2px; height: 9.5%; background: #5a5b60; border-radius: 1px;"></div><div style="position: relative; width: 100%; height: 100%; background: #0b0b0d; border-radius: 16% / 7.7%; padding: 4%; box-sizing: border-box; box-shadow: 0 22px 42px -18px rgba(20,30,70,0.5);"><div style="position: relative; width: 100%; height: 100%; border-radius: 13% / 6.1%; overflow: hidden; background: #fff; display: flex; flex-direction: column;"><div aria-hidden="true" style="position: relative; flex: 0 0 auto; height: 11%; display: flex; align-items: center; justify-content: space-between; padding: 0 11% 0 13%; box-sizing: border-box; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: clamp(8px, 0.62vw, 10px); font-weight: 600; color: #0b0b0d;"><span>9:41</span><span style="position: absolute; left: 50%; top: 22%; transform: translateX(-50%); width: 33%; height: 34%; background: #0b0b0d; border-radius: 999px;"></span><svg width="30%" viewBox="0 0 46 12" style="display: block; max-width: 34px;"><rect x="0" y="7" width="3" height="4" rx="0.8" fill="#0b0b0d"></rect><rect x="4.5" y="5" width="3" height="6" rx="0.8" fill="#0b0b0d"></rect><rect x="9" y="3" width="3" height="8" rx="0.8" fill="#0b0b0d"></rect><rect x="13.5" y="1" width="3" height="10" rx="0.8" fill="#0b0b0d"></rect><path d="M20.5 4.2a7 7 0 0 1 9 0M22.4 6.6a4 4 0 0 1 5.2 0" stroke="#0b0b0d" stroke-width="1.6" fill="none" stroke-linecap="round"></path><circle cx="25" cy="9.6" r="1.2" fill="#0b0b0d"></circle><rect x="33" y="2" width="11" height="8" rx="2.2" fill="none" stroke="#0b0b0d" stroke-width="1"></rect><rect x="34.5" y="3.5" width="8" height="5" rx="1.2" fill="#0b0b0d"></rect><rect x="44.6" y="4.8" width="1.2" height="2.6" rx="0.6" fill="#0b0b0d"></rect></svg></div><img src="assets/chimera-footage.png" alt="Footage detail with a frame timeline slider and recorded playback" style="display: block; width: 100%; flex: 1 1 0; min-height: 0; object-fit: cover; object-position: top;"></div></div></div></div>
+            </div>
+            <figcaption style="margin: 18px 2px 0; font-size: 14px; line-height: 1.5; color: #6a7591; text-wrap: pretty; text-align: center;">Live camera feeds, named and refreshable, alongside the renamed Footage view that restores recorded playback on mobile.</figcaption>
+          </figure>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(16px, 3vw, 24px); margin-top: 20px; width: 120%; margin-left: -10%;"><figure style="margin: 0;"><img src="assets/chart-livefeed.png" alt="Survey chart: viewing the Live Feed from the Front Door camera felt intuitive: 4 rated 5, one rated 4, one rated 3" style="display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(30,50,90,0.12);"><figcaption style="margin: 10px 2px 0; font-size: 13px; line-height: 1.5; color: #6a7591; text-wrap: pretty;">Viewing the Front Door live feed: 4 of 6 rated it 5/5.</figcaption></figure><figure style="margin: 0;"><img src="assets/chart-thumbnails.png" alt="Survey chart: generating thumbnails felt intuitive: split low, half rated 3 and a third rated 2" style="display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(30,50,90,0.12);"><figcaption style="margin: 10px 2px 0; font-size: 13px; line-height: 1.5; color: #6a7591; text-wrap: pretty;">Generating thumbnails scored lowest, with half rating it 3/5. This is the terminology friction the “Generate Frames” rename set out to fix.</figcaption></figure></div>
+      </article>
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); border-top: 1px solid rgba(30,50,90,0.12); padding-top: clamp(32px, 4vw, 48px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">03</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Setting up a new camera</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Research</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">There was no camera-registration screen at all. With no way to register a camera, there was no way for a user to view its footage.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Insight</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">It’s a first-time user’s very first interaction with the physical hardware, the point where confusion costs the most.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">We designed a new registration screen with a required camera-name field, plus help buttons on the more technical configuration fields.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Outcome</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">An honest open question we flagged rather than smoothed over: the exact RTSP setup process wasn’t confirmed with the stakeholder, so several configuration fields are placeholders pending that detail.</dd></div>
+          </dl>
+      </article>
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); border-top: 1px solid rgba(30,50,90,0.12); padding-top: clamp(32px, 4vw, 48px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">04</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">False alarms &amp; empty states</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Research</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Every usability participant (6/6) completed the task of deleting a large video file, but several wanted more certainty about exactly what they were about to permanently delete, since the footage stayed fully visible right up to the confirmation step.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Insight</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">An accidental, high-consequence deletion is most likely in exactly the kind of urgent moment this app is built for.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">We recommended pairing the delete flow with a timeline slider showing what’s being removed, and blurring the footage on the confirmation screen to signal the deletion is final.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Outcome</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Logged as a priority for the next iteration rather than shipped in this round (see Future Iterations in the deck).</dd></div>
+          </dl>
+          <figure style="margin: 30px 0 0;">
+            <div style="display: flex; flex-wrap: wrap; gap: clamp(16px, 3vw, 30px); justify-content: center;">
+              <div style="flex: 0 1 154px; max-width: 172px; min-width: 132px;"><div style="position: relative; width: 100%; aspect-ratio: 936 / 1940;"><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 15%; width: 2px; height: 3.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 23%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 31.5%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; right: -1.5px; top: 25%; width: 2px; height: 9.5%; background: #5a5b60; border-radius: 1px;"></div><div style="position: relative; width: 100%; height: 100%; background: #0b0b0d; border-radius: 16% / 7.7%; padding: 4%; box-sizing: border-box; box-shadow: 0 22px 42px -18px rgba(20,30,70,0.5);"><div style="position: relative; width: 100%; height: 100%; border-radius: 13% / 6.1%; overflow: hidden; background: #fff; display: flex; flex-direction: column;"><div aria-hidden="true" style="position: relative; flex: 0 0 auto; height: 11%; display: flex; align-items: center; justify-content: space-between; padding: 0 11% 0 13%; box-sizing: border-box; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: clamp(8px, 0.62vw, 10px); font-weight: 600; color: #0b0b0d;"><span>9:41</span><span style="position: absolute; left: 50%; top: 22%; transform: translateX(-50%); width: 33%; height: 34%; background: #0b0b0d; border-radius: 999px;"></span><svg width="30%" viewBox="0 0 46 12" style="display: block; max-width: 34px;"><rect x="0" y="7" width="3" height="4" rx="0.8" fill="#0b0b0d"></rect><rect x="4.5" y="5" width="3" height="6" rx="0.8" fill="#0b0b0d"></rect><rect x="9" y="3" width="3" height="8" rx="0.8" fill="#0b0b0d"></rect><rect x="13.5" y="1" width="3" height="10" rx="0.8" fill="#0b0b0d"></rect><path d="M20.5 4.2a7 7 0 0 1 9 0M22.4 6.6a4 4 0 0 1 5.2 0" stroke="#0b0b0d" stroke-width="1.6" fill="none" stroke-linecap="round"></path><circle cx="25" cy="9.6" r="1.2" fill="#0b0b0d"></circle><rect x="33" y="2" width="11" height="8" rx="2.2" fill="none" stroke="#0b0b0d" stroke-width="1"></rect><rect x="34.5" y="3.5" width="8" height="5" rx="1.2" fill="#0b0b0d"></rect><rect x="44.6" y="4.8" width="1.2" height="2.6" rx="0.6" fill="#0b0b0d"></rect></svg></div><img src="assets/chimera-history.png" alt="History of saved clips, each with Download and Delete" style="display: block; width: 100%; flex: 1 1 0; min-height: 0; object-fit: cover; object-position: top;"></div></div></div></div>
+              <div style="flex: 0 1 154px; max-width: 172px; min-width: 132px;"><div style="position: relative; width: 100%; aspect-ratio: 936 / 1940;"><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 15%; width: 2px; height: 3.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 23%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; left: -1.5px; top: 31.5%; width: 2px; height: 6.5%; background: #5a5b60; border-radius: 1px;"></div><div aria-hidden="true" style="position: absolute; right: -1.5px; top: 25%; width: 2px; height: 9.5%; background: #5a5b60; border-radius: 1px;"></div><div style="position: relative; width: 100%; height: 100%; background: #0b0b0d; border-radius: 16% / 7.7%; padding: 4%; box-sizing: border-box; box-shadow: 0 22px 42px -18px rgba(20,30,70,0.5);"><div style="position: relative; width: 100%; height: 100%; border-radius: 13% / 6.1%; overflow: hidden; background: #fff; display: flex; flex-direction: column;"><div aria-hidden="true" style="position: relative; flex: 0 0 auto; height: 11%; display: flex; align-items: center; justify-content: space-between; padding: 0 11% 0 13%; box-sizing: border-box; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: clamp(8px, 0.62vw, 10px); font-weight: 600; color: #0b0b0d;"><span>9:41</span><span style="position: absolute; left: 50%; top: 22%; transform: translateX(-50%); width: 33%; height: 34%; background: #0b0b0d; border-radius: 999px;"></span><svg width="30%" viewBox="0 0 46 12" style="display: block; max-width: 34px;"><rect x="0" y="7" width="3" height="4" rx="0.8" fill="#0b0b0d"></rect><rect x="4.5" y="5" width="3" height="6" rx="0.8" fill="#0b0b0d"></rect><rect x="9" y="3" width="3" height="8" rx="0.8" fill="#0b0b0d"></rect><rect x="13.5" y="1" width="3" height="10" rx="0.8" fill="#0b0b0d"></rect><path d="M20.5 4.2a7 7 0 0 1 9 0M22.4 6.6a4 4 0 0 1 5.2 0" stroke="#0b0b0d" stroke-width="1.6" fill="none" stroke-linecap="round"></path><circle cx="25" cy="9.6" r="1.2" fill="#0b0b0d"></circle><rect x="33" y="2" width="11" height="8" rx="2.2" fill="none" stroke="#0b0b0d" stroke-width="1"></rect><rect x="34.5" y="3.5" width="8" height="5" rx="1.2" fill="#0b0b0d"></rect><rect x="44.6" y="4.8" width="1.2" height="2.6" rx="0.6" fill="#0b0b0d"></rect></svg></div><img src="assets/chimera-storage.png" alt="Storage breakdown by camera with the largest files listed" style="display: block; width: 100%; flex: 1 1 0; min-height: 0; object-fit: cover; object-position: top;"></div></div></div></div>
+            </div>
+            <figcaption style="margin: 18px 2px 0; font-size: 14px; line-height: 1.5; color: #6a7591; text-wrap: pretty; text-align: center;">History and Storage put every saved clip within reach, each with its own Download and Delete, so removing footage is a deliberate step.</figcaption>
+          </figure>
+          <figure style="margin: 20px 0 0;"><img src="assets/chart-delete.png" alt="Survey chart: deleting a video was intuitive: all six responses rated 5" style="display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(30,50,90,0.12);"><figcaption style="margin: 10px 2px 0; font-size: 13px; line-height: 1.5; color: #6a7591; text-wrap: pretty;">Post-test survey: all 6 participants rated deleting a video 5/5, though several still wanted a clearer preview of what they were removing.</figcaption></figure>
+      </article>
+    </div>
+
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+
+      <section id="outcome" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Outcome</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">Testing the redesign across five tasks with 6 participants validated the direction (100% completed video deletion) while surfacing the next round of work: visual feedback, terminology, and icon clarity became this project’s key findings and fed directly into a future-iterations backlog.</p>
+      </section>
+
+      <section id="reflection" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px); margin-bottom: clamp(60px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Reflection</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">This project began with an existing product, shown here only in its redesigned form out of respect for confidentiality, and the full engagement was completed within a three-week timeline. Given more time, we would have run a second round of usability testing with more participants after iterating. The project taught us a great deal, especially about working within a tight deadline and collaborating closely as a team.</p>
+      </section>
+
+    </div>
+
+    <section id="prototype" data-reveal="" style="scroll-margin-top: 110px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); max-width: 1120px; margin: clamp(56px, 8vw, 88px) auto clamp(56px, 8vw, 88px); padding: 0 clamp(22px, 4vw, 40px);">
+      <h2 style="margin: 0 0 22px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Prototype walkthrough</h2>
+      <div style="width: 100%; aspect-ratio: 16 / 9; border-radius: 22px; overflow: hidden; background: #0f1115; box-shadow: 0 24px 50px -30px rgba(45,60,95,0.5);"><iframe src="https://www.youtube.com/embed/nNXOprjJR1U?rel=0" referrerpolicy="strict-origin-when-cross-origin" title="Chimera prototype walkthrough video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="" style="display: block; width: 100%; height: 100%; border: 0;"></iframe></div>
+      <a href="https://youtu.be/nNXOprjJR1U" target="_blank" rel="noopener" style="display: inline-flex; margin: 12px 2px 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #6a7591; text-decoration: none;" style-hover="color: #3357c9;">Watch on YouTube ↗</a>
+    </section>
+
+    <nav aria-label="More projects" style="max-width: 760px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px) clamp(30px, 5vw, 60px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px;">
+      <a href="CaseStudy-Archlog.dc.html" style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 14px 20px; border: 1px solid rgba(30,50,90,0.12); border-radius: 14px; text-decoration: none; background: #fbfcfe; transition: transform 0.4s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.4s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 24px 44px -30px rgba(45,60,95,0.5);"><span aria-hidden="true" style="font-size: 18px; color: #5c6b86;">←</span><span style="text-align: right;"><span style="display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6a7591;">Previous project</span><span style="display: block; margin-top: 3px; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Archlog</span></span></a>
+      <a href="CaseStudy-Thearis.dc.html" style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 14px 20px; border: 1px solid rgba(30,50,90,0.12); border-radius: 14px; text-decoration: none; background: #fbfcfe; transition: transform 0.4s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.4s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 24px 44px -30px rgba(45,60,95,0.5);"><span style=""><span style="display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6a7591;">Next project</span><span style="display: block; margin-top: 3px; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Thearis</span></span><span aria-hidden="true" style="font-size: 18px; color: #5c6b86;">→</span></a>
+    </nav>
+
+  </main>
+
+  <footer style="position: relative; overflow: hidden; background: #ffffff; border-top: 1px solid rgba(30,50,90,0.09);">
+    <div style="max-width: 1120px; margin: 0 auto; padding: clamp(32px, 4.7vw, 50px) clamp(22px, 4vw, 40px) clamp(21px, 3.2vw, 29px); position: relative;">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <p style="margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; letter-spacing: -0.03em; color: #14161c;">Aliyah Panjon</p>
+          <p style="margin: 6px 0 0; font-size: 1.05rem; color: #4a586c;">UX/UI Designer</p>
+          <p style="margin: 20px 0 0; font-size: 1.05rem; color: #4a586c; max-width: 340px; text-wrap: pretty;"><br><br></p>
+        </div>
+        <nav aria-label="Contact and links" style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+          <a href="mailto:aliyahpanjon07@gmail.com" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">aliyahpanjon07@gmail.com →</a>
+          <a href="https://www.linkedin.com/in/aliyah-e-panjon/" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">LinkedIn →</a>
+          <a href="https://github.com/Aliyah07Pan" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">GitHub →</a>
+          <a href="https://drive.google.com/file/d/1RqPw23uk4WzAJzDFvYxji89rrciK0QHw/view?usp=sharing" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">Resume →</a>
+        </nav>
+      </div>
+      <div style="display: flex; flex-wrap: wrap-reverse; gap: 20px 40px; justify-content: space-between; align-items: center; margin-top: clamp(26px, 4.2vw, 42px); padding-top: 15px; border-top: 1px solid rgba(30,50,90,0.1);">
+        <p style="margin: 0; font-size: 13px; color: #6a7591;">© 2027 Aliyah Panjon · Designed &amp; built with care</p>
+        <img src="assets/bear-reading.png" alt="" aria-hidden="true" style="width: 84px; height: auto; opacity: 0.92;">
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  containerRef = React.createRef();
+  navRef = React.createRef();
+  raf = 0;
+  tocRef = React.createRef();
+  tocIds = ["overview","impact","challenge","decisions","outcome","reflection","prototype"];
+  tocActive = null;
+  updateToc = () => {
+    const toc = this.tocRef.current, c = this.containerRef.current;
+    if (!toc || !c) return;
+    const hdr = c.querySelector("main header");
+    const show = hdr ? hdr.getBoundingClientRect().bottom < 60 : false;
+    toc.style.opacity = show ? "1" : "0";
+    toc.style.transform = show ? "none" : "translateY(-8px)";
+    toc.style.pointerEvents = show ? "auto" : "none";
+    let active = null;
+    this.tocIds.forEach((id) => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top < 150) active = id; });
+    if (active === this.tocActive) return;
+    this.tocActive = active;
+    const sc = toc.querySelector("[data-toc-scroller]");
+    toc.querySelectorAll("[data-toc-link]").forEach((a) => {
+      const on = a.getAttribute("data-toc-link") === active;
+      a.style.background = on ? "rgba(30,50,90,0.06)" : "transparent";
+      a.style.color = on ? "#17181c" : "#3a3b43";
+      a.style.fontWeight = on ? "600" : "500";
+      if (on) { a.setAttribute("aria-current", "location"); if (sc) sc.scrollTo({ left: a.offsetLeft - sc.clientWidth / 2 + a.offsetWidth / 2, behavior: "smooth" }); }
+      else a.removeAttribute("aria-current");
+    });
+  };
+
+  onScroll = () => {
+    if (this.raf) return;
+    this.raf = requestAnimationFrame(() => {
+      this.raf = 0;
+      const nav = this.navRef.current;
+      if (!nav) return;
+      const t = Math.min((window.scrollY || 0) / 120, 1);
+      nav.style.boxShadow = "0 " + (t * 8).toFixed(1) + "px " + (t * 20).toFixed(1) + "px rgba(30,50,90," + (t * 0.07).toFixed(3) + ")";
+    });
+  };
+
+  componentDidMount() {
+    const c = this.containerRef.current;
+    this.reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    this.onScroll();
+    const reveals = c ? Array.from(c.querySelectorAll("[data-reveal]")) : [];
+    if (this.reduced || !("IntersectionObserver" in window)) {
+      reveals.forEach((el) => { el.style.opacity = "1"; el.style.transform = "none"; });
+      return;
+    }
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.style.opacity = "1";
+          en.target.style.transform = "none";
+          this.io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    reveals.forEach((el) => this.io.observe(el));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+    if (this.io) this.io.disconnect();
+    if (this.raf) cancelAnimationFrame(this.raf);
+  }
+
+  renderVals() {
+    return { containerRef: this.containerRef, navRef: this.navRef, tocRef: this.tocRef };
+  }
+}
+</script>
+</body>
+</html>

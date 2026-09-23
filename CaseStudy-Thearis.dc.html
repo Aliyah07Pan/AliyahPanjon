@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..800;1,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: #17181c; font-family: "Figtree", system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; background: #ffffff; }
+  * { box-sizing: border-box; }
+  ::selection { background: #c6d5ec; }
+  a { color: #3357c9; }
+  a:hover { color: #22357d; }
+  @media (max-width: 520px) {
+    #nav-brand { font-size: 0 !important; }
+    #nav-brand::after { content: "AP"; font-size: 15px; font-weight: 700; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</helmet>
+<div ref="{{ containerRef }}" id="top" style="position: relative; overflow-x: clip;">
+
+  <sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
+    <div role="dialog" aria-modal="true" aria-labelledby="lock-title" style="position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 24px; background: #f6f8fb;">
+      <form onSubmit="{{ submit }}" style="width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 16px; text-align: center;">
+        <div aria-hidden="true" style="width: 52px; height: 52px; margin: 0 auto 4px; border-radius: 14px; background: #fff; border: 1px solid rgba(30,50,90,0.12); display: flex; align-items: center; justify-content: center; color: #3a3b43;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div>
+        <h1 id="lock-title" style="margin: 0; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Thearis is password protected</h1>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6a7591; text-wrap: pretty;">Enter the password to view this case study. Need access? <a href="mailto:aliyahpanjon07@gmail.com">Email me</a>.</p>
+        <input type="password" aria-label="Password" placeholder="Password" autofocus="" value="{{ pw }}" onChange="{{ onPw }}" style="width: 100%; padding: 13px 16px; font: inherit; font-size: 16px; color: #17181c; background: #fff; border: 1px solid rgba(30,50,90,0.18); border-radius: 12px; outline: none;" style-focus="border-color: #3357c9; box-shadow: 0 0 0 3px rgba(51,87,201,0.15);">
+        <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: -6px 0 0; font-size: 14px; color: #b3261e;">Incorrect password. Try again.</p></sc-if>
+        <button type="submit" style="padding: 13px 16px; font: inherit; font-size: 15px; font-weight: 600; color: #fff; background: #17181c; border: 0; border-radius: 12px; cursor: pointer;" style-hover="background: #2c2e37;">Unlock</button>
+        <a href="Portfolio.dc.html#projects" style="font-size: 14px; color: #6a7591; text-decoration: none;" style-hover="color: #3357c9;">← Back to projects</a>
+      </form>
+    </div>
+  </sc-if>
+
+  <nav ref="{{ navRef }}" id="nav" aria-label="Primary" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px clamp(20px, 4vw, 44px); background: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(30,50,90,0.09); backdrop-filter: saturate(1.6) blur(16px); -webkit-backdrop-filter: saturate(1.6) blur(16px); transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
+    <a href="Portfolio.dc.html#top" id="nav-brand" style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: #17181c; text-decoration: none;"><b>AP</b></a>
+    <div style="display: flex; align-items: center; gap: clamp(4px, 1vw, 10px);">
+      <a href="Portfolio.dc.html#top" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">Home</a>
+      <a href="AboutMe.dc.html" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">About me</a>
+      <a href="Portfolio.dc.html#projects" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">Projects</a>
+      <a href="https://drive.google.com/file/d/1RqPw23uk4WzAJzDFvYxji89rrciK0QHw/view?usp=sharing" target="_blank" rel="noopener" aria-label="Resume (PDF)" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/aliyah-e-panjon/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg>
+      </a>
+    </div>
+  </nav>
+
+  <main style="padding-top: 54px;">
+
+    <header style="max-width: 860px; margin: 0 auto; padding: clamp(52px, 9vw, 96px) clamp(22px, 4vw, 40px) clamp(30px, 5vw, 52px);">
+      <a href="Portfolio.dc.html#projects" data-reveal="" style="opacity: 0; transform: translateY(16px); transition: opacity 0.6s cubic-bezier(0.2,0.7,0.2,1), transform 0.6s cubic-bezier(0.2,0.7,0.2,1); display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #5c6b86; text-decoration: none;" style-hover="color: #22357d;"><span aria-hidden="true">←</span> All projects</a>
+      <p data-reveal="" style="opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.05s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.05s; margin: 30px 0 16px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5c6b86;">Thearis · Solo, AI-assisted</p>
+      <h1 data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s; margin: 0; font-size: clamp(2.1rem, 5.4vw, 3.5rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; color: #14161c; text-wrap: balance;">From a broad finance app to a dashboard that tells a first-time freelancer what to do next</h1>
+      <p data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.16s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.16s; margin: 26px 0 0; font-size: clamp(1.08rem, 2vw, 1.3rem); line-height: 1.6; color: #3f4a5c; max-width: 66ch; text-wrap: pretty;">Thearis is an AI-assisted financial dashboard for independent earners. It began as a women-focused finance app and kept trying to serve everyone at once. I helped narrow it to a single sharp user, first-time independent earners, and reframed the product around a dashboard-first first screen that surfaces what matters before the user has to ask. My work spanned research synthesis, the requirements for the landing page, persona-based usability evaluations, and an 18-slide stakeholder deck. <span style="color:#8a6d3b;">[Add the headline outcome once results land.]</span></p>
+    </header>
+
+    <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); max-width: 860px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: rgba(30,50,90,0.12); border: 1px solid rgba(30,50,90,0.12); border-radius: 16px; overflow: hidden;">
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Role</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">UX Design Intern</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Team</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Solo (design side)</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Timeline</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Jul 2026 – <span style="color:#8a6d3b;">[present]</span></p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Tools</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Claude, Lovable, Figma</p></div>
+        <div style="background: #fbfcfe; padding: 18px 20px;"><p style="margin: 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a7591;">Platform</p><p style="margin: 6px 0 0; font-size: 15px; font-weight: 600; color: #14161c;">Web app</p></div>
+      </div>
+    </section>
+
+    <section data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); max-width: 1120px; margin: clamp(44px, 7vw, 80px) auto 0; padding: 0 clamp(22px, 4vw, 40px);">
+      <div role="img" aria-label="Thearis hero visual placeholder" style="width: 100%; aspect-ratio: 16 / 9; border-radius: 22px; background: repeating-linear-gradient(45deg, #eef1f6 0 16px, #f7f9fc 16px 32px); box-shadow: 0 24px 50px -30px rgba(45,60,95,0.5); display: flex; align-items: center; justify-content: center; text-align: center;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: #9aa2b2; padding: 20px; line-height: 1.7;">Hero visual: the &ldquo;My Canvas&rdquo; dashboard<br>[drop strongest screen or before/after]</span></div>
+    </section>
+
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+
+      <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Overview</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">Thearis helps freelancers, creators, and gig workers make sense of income that arrives irregularly. The product had ambition but no edge; it was trying to be a finance app for everyone. I focused the work on the people least served by existing tools: first-time independent earners who have never had to manage taxes, buffers, or slow months on their own. My scope was research, the requirements for the landing dashboard, usability evaluation of dashboard variants, and the stakeholder deliverables that moved the decision forward.</p>
+      </section>
+
+      <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(48px, 8vw, 84px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Impact</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px;">
+          <li style="display: flex; gap: 13px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.6; color: #3f4a5c;"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5c6b86;"></span><span>Reframed the product around a single ICP, first-time independent earners, giving the team a clear user to design and prioritize against.</span></li>
+          <li style="display: flex; gap: 13px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.6; color: #3f4a5c;"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5c6b86;"></span><span>Defined a dashboard-first model that surfaces proactive guidance before search or chat, backed by Reddit research on how often this user actually checks in.</span></li>
+          <li style="display: flex; gap: 13px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.6; color: #3f4a5c;"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5c6b86;"></span><span>Delivered an 18-slide stakeholder deck with a speaker script that aligned the team on direction. <span style="color:#8a6d3b;">[Add usability results or adoption metrics once available. No invented numbers.]</span></span></li>
+        </ul>
+      </section>
+
+      <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(48px, 8vw, 84px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">The challenge</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">The product had already pivoted once, from a women-focused finance app to independent earners broadly, and &ldquo;broadly&rdquo; was the problem. A freelancer three years in and someone who just took their first contract have almost nothing in common. Every feature request pulled the design in a different direction, and the first screen was trying to answer every question at once. The hard part was not adding features; it was choosing who to disappoint, and building a first screen that felt calm to a person who is anxious about money.</p>
+      </section>
+
+      <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(48px, 8vw, 84px);">
+        <div style="border-left: 3px solid #9aa7c2; padding: 4px 0 4px 24px;">
+          <p style="margin: 0 0 10px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #5c6b86;">The design question</p>
+          <p style="margin: 0; font-size: clamp(1.3rem, 2.8vw, 1.75rem); font-weight: 600; line-height: 1.35; letter-spacing: -0.02em; color: #14161c; text-wrap: pretty;">How might we make a first-time freelancer's first screen tell them what to do next, without overwhelming them?</p>
+        </div>
+      </section>
+
+      <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 8px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Key decisions</h2>
+        <p style="margin: 0 0 36px; font-size: 15px; color: #6a7591;">The core of the work. Each one changed the product's direction.</p>
+      </section>
+
+    </div>
+
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px); display: flex; flex-direction: column; gap: clamp(28px, 4vw, 44px);">
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); border: 1px solid rgba(30,50,90,0.1); border-radius: 20px; overflow: hidden; background: #fff; box-shadow: 0 18px 40px -32px rgba(45,60,95,0.5);">
+        <div style="padding: clamp(26px, 4vw, 40px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">01</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Choosing one user out of everyone</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Problem</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">&ldquo;Independent earners broadly&rdquo; meant no one was designed for. Features fought each other.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">I pushed to narrow the ICP to first-time independent earners and brought stakeholder discovery questions to pressure-test the pivot with Claire.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Why it mattered</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">A specific user made prioritization possible: we could finally say no to features and yes to guidance.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Result</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;"><span style="color:#8a6d3b;">[Add stakeholder feedback or the decision Claire made here.]</span></dd></div>
+          </dl>
+        </div>
+        <div role="img" aria-label="Decision 1 visual placeholder" style="width: 100%; aspect-ratio: 16 / 8; background: repeating-linear-gradient(45deg, #eef1f6 0 14px, #f7f9fc 14px 28px); border-top: 1px solid rgba(30,50,90,0.08); display: flex; align-items: center; justify-content: center; text-align: center;"><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #9aa2b2; padding: 16px;">Visual: persona / ICP framing</span></div>
+      </article>
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); border: 1px solid rgba(30,50,90,0.1); border-radius: 20px; overflow: hidden; background: #fff; box-shadow: 0 18px 40px -32px rgba(45,60,95,0.5);">
+        <div style="padding: clamp(26px, 4vw, 40px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">02</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Dashboard before chat</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Problem</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">A chat-first product assumes the user knows what to ask. A first-timer usually doesn't.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">I argued for a dashboard-first model (proactive data and next steps on the landing screen) and wrote the requirements for the &ldquo;My Canvas&rdquo; page.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Why it mattered</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">It shifts the burden from the user to the product; the app does the noticing.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Result</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Reddit research confirmed this user checks in irregularly and wants a status read at a glance, which supported the hierarchy. <span style="color:#8a6d3b;">[Add usability finding.]</span></dd></div>
+          </dl>
+        </div>
+        <div role="img" aria-label="Decision 2 visual placeholder" style="width: 100%; aspect-ratio: 16 / 8; background: repeating-linear-gradient(45deg, #eef1f6 0 14px, #f7f9fc 14px 28px); border-top: 1px solid rgba(30,50,90,0.08); display: flex; align-items: center; justify-content: center; text-align: center;"><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #9aa2b2; padding: 16px;">Visual: dashboard hierarchy</span></div>
+      </article>
+
+      <article data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 0.75s cubic-bezier(0.2,0.7,0.2,1), transform 0.75s cubic-bezier(0.2,0.7,0.2,1); border: 1px solid rgba(30,50,90,0.1); border-radius: 20px; overflow: hidden; background: #fff; box-shadow: 0 18px 40px -32px rgba(45,60,95,0.5);">
+        <div style="padding: clamp(26px, 4vw, 40px);">
+          <p style="margin: 0 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9aa2b2;">03</p>
+          <h3 style="margin: 0 0 20px; font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Revealing complexity slowly</h3>
+          <dl style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Problem</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Every capability shown at once reads as a demand. A nervous new earner bounces.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Decision</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Progressive disclosure: the first screen shows a small, calm set of moves; depth appears as the user is ready. This also shaped the free vs. premium onboarding split.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Why it mattered</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;">Calm is a feature for this user. Fewer choices up front means they actually take the first step.</dd></div>
+            <div><dt style="font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #5c6b86; text-transform: uppercase;">Result</dt><dd style="margin: 4px 0 0; font-size: clamp(1rem, 1.7vw, 1.1rem); line-height: 1.6; color: #3f4a5c;"><span style="color:#8a6d3b;">[Add persona-based usability evaluation takeaways.]</span></dd></div>
+          </dl>
+        </div>
+        <div role="img" aria-label="Decision 3 visual placeholder" style="width: 100%; aspect-ratio: 16 / 8; background: repeating-linear-gradient(45deg, #eef1f6 0 14px, #f7f9fc 14px 28px); border-top: 1px solid rgba(30,50,90,0.08); display: flex; align-items: center; justify-content: center; text-align: center;"><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #9aa2b2; padding: 16px;">Visual: progressive disclosure / onboarding</span></div>
+      </article>
+
+    </div>
+
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+
+      <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(56px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Outcome</h2>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">The product now has a user it is actually for and a first screen built around their first question: am I okay, and what do I do next? Direction is aligned through the stakeholder deck; onboarding scope and feature prioritization are the open decisions awaiting Claire. <span style="color:#8a6d3b;">[Close the loop with the concrete result once it lands: a decision made, a test outcome, or a shipped screen.]</span></p>
+      </section>
+
+      <section data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(48px, 8vw, 84px); margin-bottom: clamp(60px, 9vw, 100px);">
+        <h2 style="margin: 0 0 18px; font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 600; letter-spacing: -0.025em; color: #14161c;">Reflection</h2>
+        <p style="margin: 0 0 16px; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;">The biggest lever wasn't a screen; it was the ICP. Once we named who we were for, everything downstream got easier to decide. I also directed AI tooling (Claude and Lovable) as part of the workflow: it let me move from research to working screens fast, but the judgment about what to build stayed mine.</p>
+        <p style="margin: 0; font-size: clamp(1.02rem, 1.8vw, 1.15rem); line-height: 1.7; color: #3f4a5c; text-wrap: pretty;"><span style="color:#8a6d3b;">[Add what you'd change next time, e.g. testing the dashboard hierarchy with real users earlier.]</span></p>
+      </section>
+
+    </div>
+
+    <section style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px) clamp(30px, 5vw, 60px);">
+      <a href="CaseStudy-Archlog.dc.html" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; padding: clamp(24px, 4vw, 36px); border: 1px solid rgba(30,50,90,0.12); border-radius: 20px; text-decoration: none; background: #fbfcfe; transition: transform 0.4s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.4s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 24px 44px -30px rgba(45,60,95,0.5);">
+        <span><span style="display: block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #6a7591;">Next project</span><span style="display: block; margin-top: 6px; font-size: clamp(1.3rem, 3vw, 1.9rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Archlog</span></span>
+        <span aria-hidden="true" style="font-size: 26px; color: #5c6b86;">→</span>
+      </a>
+    </section>
+
+  </main>
+
+  <footer style="position: relative; overflow: hidden; background: #ffffff; border-top: 1px solid rgba(30,50,90,0.09);">
+    <div style="max-width: 1120px; margin: 0 auto; padding: clamp(32px, 4.7vw, 50px) clamp(22px, 4vw, 40px) clamp(21px, 3.2vw, 29px); position: relative;">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <p style="margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; letter-spacing: -0.03em; color: #14161c;">Aliyah Panjon</p>
+          <p style="margin: 6px 0 0; font-size: 1.05rem; color: #4a586c;">UX/UI Designer</p>
+          <p style="margin: 20px 0 0; font-size: 1.05rem; color: #4a586c; max-width: 340px; text-wrap: pretty;">Have a project in mind, or just want to say hi? I'd love to hear from you.</p>
+        </div>
+        <nav aria-label="Contact and links" style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+          <a href="mailto:aliyahpanjon07@gmail.com" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">aliyahpanjon07@gmail.com →</a>
+          <a href="https://www.linkedin.com/in/aliyah-e-panjon/" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">LinkedIn →</a>
+          <a href="https://github.com/Aliyah07Pan" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">GitHub →</a>
+          <a href="https://drive.google.com/file/d/1RqPw23uk4WzAJzDFvYxji89rrciK0QHw/view?usp=sharing" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; transition: color 0.2s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #5c6b86; transform: translateX(4px);">Resume →</a>
+        </nav>
+      </div>
+      <div style="display: flex; flex-wrap: wrap-reverse; gap: 20px 40px; justify-content: space-between; align-items: center; margin-top: clamp(26px, 4.2vw, 42px); padding-top: 15px; border-top: 1px solid rgba(30,50,90,0.1);">
+        <p style="margin: 0; font-size: 13px; color: #6a7591;">© 2027 Aliyah Panjon · Designed &amp; built with care</p>
+        <img src="assets/bear-reading.png" alt="" aria-hidden="true" style="width: 84px; height: auto; opacity: 0.92;">
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"password":{"editor":"text","default":"thearis2027","tsType":"string"}}'>
+class Component extends DCLogic {
+  state = { locked: (() => { try { return sessionStorage.getItem("thearis-unlocked") !== "1"; } catch (e) { return true; } })(), pw: "", error: false };
+  submit = (e) => {
+    e.preventDefault();
+    if (this.state.pw === (this.props.password ?? "thearis2027")) {
+      try { sessionStorage.setItem("thearis-unlocked", "1"); } catch (err) {}
+      this.setState({ locked: false, error: false });
+    } else this.setState({ error: true });
+  };
+  containerRef = React.createRef();
+  navRef = React.createRef();
+  raf = 0;
+
+  onScroll = () => {
+    if (this.raf) return;
+    this.raf = requestAnimationFrame(() => {
+      this.raf = 0;
+      const nav = this.navRef.current;
+      if (!nav) return;
+      const t = Math.min((window.scrollY || 0) / 120, 1);
+      nav.style.boxShadow = "0 " + (t * 8).toFixed(1) + "px " + (t * 20).toFixed(1) + "px rgba(30,50,90," + (t * 0.07).toFixed(3) + ")";
+    });
+  };
+
+  componentDidMount() {
+    const c = this.containerRef.current;
+    this.reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    this.onScroll();
+    const reveals = c ? Array.from(c.querySelectorAll("[data-reveal]")) : [];
+    if (this.reduced || !("IntersectionObserver" in window)) {
+      reveals.forEach((el) => { el.style.opacity = "1"; el.style.transform = "none"; });
+      return;
+    }
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.style.opacity = "1";
+          en.target.style.transform = "none";
+          this.io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    reveals.forEach((el) => this.io.observe(el));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+    if (this.io) this.io.disconnect();
+    if (this.raf) cancelAnimationFrame(this.raf);
+  }
+
+  renderVals() {
+    return { containerRef: this.containerRef, navRef: this.navRef, locked: this.state.locked, pw: this.state.pw, error: this.state.error, submit: this.submit, onPw: (e) => this.setState({ pw: e.target.value, error: false }) };
+  }
+}
+</script>
+</body>
+</html>
