@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&amp;family=Figtree:ital,wght@0,300..800;1,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: #17181c; font-family: "Figtree", system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; background: #ffffff; }
+  * { box-sizing: border-box; }
+  ::selection { background: #c6d5ec; }
+  a { color: #3357c9; }
+  a:hover { color: #22357d; }
+  @keyframes gradientDrift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</helmet>
+<div ref="{{ containerRef }}" id="top" style="position: relative; overflow-x: clip;">
+
+  <nav aria-label="Primary" style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px clamp(20px, 4vw, 44px); background: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(30,50,90,0.09); backdrop-filter: saturate(1.6) blur(16px); -webkit-backdrop-filter: saturate(1.6) blur(16px);">
+    <a href="Portfolio.dc.html" style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: #17181c; text-decoration: none;">Aliyah Panjon</a>
+    <div style="display: flex; align-items: center; gap: clamp(4px, 1vw, 10px);">
+      <a href="Portfolio.dc.html#home" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">Home</a>
+      <a href="AboutMe.dc.html" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: #17181c; background: rgba(30,50,90,0.06); text-decoration: none;">About me</a>
+      <a href="Portfolio.dc.html#projects" style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">Projects</a>
+      <a href="https://drive.google.com/file/d/1RqPw23uk4WzAJzDFvYxji89rrciK0QHw/view?usp=sharing" target="_blank" rel="noopener" aria-label="Resume (PDF)" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/aliyah-e-panjon/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: #3a3b43; text-decoration: none; transition: color 0.2s ease, background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg>
+      </a>
+    </div>
+  </nav>
+
+  <header style="position: relative; overflow: hidden; isolation: isolate; padding: clamp(40px, 7vw, 76px) 0 clamp(16px, 3vw, 28px);">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 40px);">
+      <a href="Portfolio.dc.html" style="display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #47566f; text-decoration: none; margin-bottom: 22px;" style-hover="color: #22357d;"><span aria-hidden="true">←</span> Back to home</a>
+      
+      <h1 style="margin: 0; font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 300; line-height: 1.02; letter-spacing: -0.04em; color: #14161c;">Hi! I’m Aliyah</h1>
+    </div>
+  </header>
+
+  <main style="max-width: 1120px; margin: 0 auto; padding: clamp(8px, 1.5vw, 20px) clamp(22px, 4vw, 40px) clamp(50px, 8vw, 90px);">
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(16px, 4vw, 56px);">
+        <p style="margin: 0 0 22px; font-size: clamp(1.4rem, 3vw, 1.85rem); font-weight: 500; line-height: 1.4; letter-spacing: -0.02em; color: #14161c; text-wrap: pretty;">Hi, I'm Aliyah, a Digital Design student at NJIT, with a minor in User Experience.</p>
+        <p style="margin: 0; font-size: clamp(1.05rem, 2vw, 1.18rem); line-height: 1.65; color: #37414f; text-wrap: pretty;">I'm a UX designer who wants to create experiences for everyone. I care about user research, interaction design, visual detail, and building experiences that are genuinely accessible and intuitive.</p>
+      </div>
+      <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s; display: flex; justify-content: center; margin-top: clamp(-118px, -9vw, -40px);">
+        <img src="./assets/id-badge.png" alt="Aliyah Panjon ID badge — Product Designer, joined 2027, INFJ, Fangirl Certified" style="display: block; width: 100%; max-width: 540px; height: auto; transform: rotate(-1.2deg); filter: drop-shadow(0 14px 26px rgba(45,60,95,0.18));">
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start; margin: clamp(72px, 11vw, 132px) 0 0;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1);">
+        <h2 style="margin: 0 0 14px; font-size: clamp(1.15rem, 2.2vw, 1.35rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Why UX</h2>
+        <p style="margin: 0; font-size: clamp(1.05rem, 2vw, 1.18rem); line-height: 1.65; color: #37414f; text-wrap: pretty;">Creativity and curiosity have always shaped how I approach the world, and I knew I wanted a career that would make a meaningful impact on people while allowing me to keep learning. User experience brought those interests together. Its blend of psychology, research, design, and technology drew me in, and it offered a clear path to creating work that improves how people interact with the products they rely on.</p>
+        <p style="margin: 16px 0 0; font-size: clamp(1.05rem, 2vw, 1.18rem); line-height: 1.65; color: #37414f; text-wrap: pretty;">It really clicked for me when I heard how the first ergonomic vegetable peeler came to be. A man watched his wife struggle to grip a regular peeler because of her arthritis, so he designed one that was comfortable for her, and it ended up being easier for everyone. That stuck with me. It showed me how much good design can change someone's day, and it's exactly the kind of work I want to do.</p>
+      </div>
+      <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.1s;" id="hobbies">
+        <p style="margin: 0 0 20px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #6a7591;">Off the clock, you'll find me</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <span style="display: inline-flex; padding: 11px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.05); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), color 0.2s, background 0.2s;" style-hover="transform: translateY(-3px); background: #5c6b86; color: #ffffff;">☕ Café hopping</span>
+          <span style="display: inline-flex; padding: 11px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.05); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), color 0.2s, background 0.2s;" style-hover="transform: translateY(-3px); background: #5c6b86; color: #ffffff;">3D art</span>
+          <span style="display: inline-flex; padding: 11px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.05); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), color 0.2s, background 0.2s;" style-hover="transform: translateY(-3px); background: #5c6b86; color: #ffffff;">Graphic design</span>
+          <span style="display: inline-flex; padding: 11px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.05); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), color 0.2s, background 0.2s;" style-hover="transform: translateY(-3px); background: #5c6b86; color: #ffffff;">📷 Photography</span>
+          <span style="display: inline-flex; padding: 11px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.05); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), color 0.2s, background 0.2s;" style-hover="transform: translateY(-3px); background: #5c6b86; color: #ffffff;">Minecraft</span>
+          <span style="display: inline-flex; padding: 11px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.05); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), color 0.2s, background 0.2s;" style-hover="transform: translateY(-3px); background: #5c6b86; color: #ffffff;">Concerts</span>
+          <span style="display: inline-flex; padding: 11px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.05); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), color 0.2s, background 0.2s;" style-hover="transform: translateY(-3px); background: #5c6b86; color: #ffffff;">🐈 Cats</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width: 720px; margin: clamp(48px, 7vw, 80px) 0 0;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1);">
+        <h2 style="margin: 0 0 14px; font-size: clamp(1.15rem, 2.2vw, 1.35rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Experience</h2>
+        <p style="margin: 0; font-size: clamp(1.05rem, 2vw, 1.18rem); line-height: 1.65; color: #37414f; text-wrap: pretty;">As a UX Design Intern at Thearis, a fintech startup, I integrated AI tools into my design process, gained experience in product management, and contributed to the launch of a published product. I have also conducted work with the Social X Lab at NJIT, a multidisciplinary human-computer interaction lab, and I currently serve as Vice President of NJIT's SIGCHI chapter.</p>
+      </div>
+      <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); margin-top: clamp(40px, 5vw, 56px);">
+        <h2 style="margin: 0 0 14px; font-size: clamp(1.15rem, 2.2vw, 1.35rem); font-weight: 600; letter-spacing: -0.02em; color: #14161c;">Design philosophy</h2>
+        <p style="margin: 0; font-size: clamp(1.05rem, 2vw, 1.18rem); line-height: 1.65; color: #37414f; text-wrap: pretty;">Strong design is rarely achieved on the first attempt. It is the result of time, empathy, and deliberate iteration. Research is the backbone of user experience: it grounds my decisions in a clear understanding of the people I am designing for and keeps the work centered on their needs.</p>
+        <h3 style="margin: 22px 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: #6a7591;">Accessibility</h3>
+        <p style="margin: 0; font-size: clamp(1.05rem, 2vw, 1.18rem); line-height: 1.65; color: #37414f; text-wrap: pretty;">Accessibility is fundamental to good design. An experience is only successful when it can be used by everyone, regardless of ability, device, or context. Designing inclusively expands who a product can serve, builds trust with users, and consistently leads to clearer, more usable experiences for all.</p>
+        <h3 style="margin: 22px 0 6px; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: #6a7591;">Teamwork</h3>
+        <p style="margin: 0; font-size: clamp(1.05rem, 2vw, 1.18rem); line-height: 1.65; color: #37414f; text-wrap: pretty;">The strongest solutions are shaped by many perspectives. I value listening closely to users, designers, developers, and stakeholders, as each brings insight that strengthens the work. Open collaboration and constructive feedback challenge my assumptions and lead to more thoughtful, well-rounded outcomes.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <section aria-labelledby="skills-title" style="max-width: 1000px; margin: 0 auto; padding: clamp(48px, 7vw, 86px) clamp(22px, 4vw, 40px) 0;">
+    <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); text-align: center;">
+      <p id="skills-title" style="margin: 0; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5c6b86;">Skills</p>
+    </div>
+    <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.08s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.08s; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 30px;">
+<span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Figma</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">User Research</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Prototyping</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Wireframing</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Interaction Design</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Design Systems</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Accessibility</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Usability Testing</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Visual Design</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Motion Design</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">HTML</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">CSS</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">JavaScript</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">PHP</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">C++</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">C#</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">SQL</span>
+        <span style="display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(240,244,249,0.9); border: 1px solid rgba(30,50,90,0.08); font-size: 15px; font-weight: 500; color: #2c2e37; box-shadow: 0 2px 8px rgba(40,60,110,0.04);">Claude</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="tools-title" style="max-width: 1000px; margin: 0 auto; padding: clamp(48px, 7vw, 86px) clamp(22px, 4vw, 40px) 0;">
+    <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); text-align: center;">
+      <p id="tools-title" style="margin: 0; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5c6b86;">Favorite Tools</p>
+    </div>
+    <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.08s, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) 0.08s; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: clamp(14px, 2vw, 22px); margin-top: 30px;">
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="28" height="28" fill="#14161c"><path d="M8 24a4 4 0 0 0 4-4v-4H8a4 4 0 0 0 0 8z"></path><path d="M4 12a4 4 0 0 1 4-4h4v8H8a4 4 0 0 1-4-4z"></path><path d="M4 4a4 4 0 0 1 4-4h4v8H8a4 4 0 0 1-4-4z"></path><path d="M12 0h4a4 4 0 0 1 0 8h-4z"></path><circle cx="16" cy="12" r="4"></circle></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">Figma</span></div>
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="28" height="28" fill="#14161c"><path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"></path></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">Framer</span></div>
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="28" height="28" fill="#14161c"><path d="M14.7 2H22v20zM9.3 2H2v20zM12 8.4 16.7 20h-3.1l-1.4-3.5H8.6z"></path></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">Adobe Suite</span></div>
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="28" height="28" fill="#14161c"><path d="M6 2h12l4 6-10 13L2 8zm.9 2.2L4.4 7.8h4zm10.2 0 2.5 3.6h-4zm-7.3.1L8.4 7.8h7.2l-1.4-3.5zM4.7 9l5.1 8L8.3 9zm10.9 0-1.5 8 5.1-8z"></path></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">Sketch</span></div>
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#14161c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"></path><path d="M3 7l9 5 9-5"></path><path d="M12 12v10"></path></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">Maya</span></div>
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="28" height="28" fill="#14161c"><path d="M18 2 8.3 11.2 3.8 7.8 2 8.9l3.6 3.1L2 15.1l1.8 1.1 4.5-3.4L18 22l4-1.9V3.9zm0 5.3v9.4L11.9 12z"></path></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">VSCode</span></div>
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="28" height="28" fill="#14161c"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.3-1.1.6-1.4-2.2-.3-4.6-1.2-4.6-5.1 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9 9 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.8-4.6 5.1.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.3 10.3 0 0 0 22 12.3C22 6.6 17.5 2 12 2z"></path></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">Github</span></div>
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="26" height="26" fill="#14161c"><path d="M5.5 15a2 2 0 1 1-2-2h2zM6.5 15a2 2 0 0 1 4 0v5a2 2 0 0 1-4 0zM9 5.5a2 2 0 1 1 2-2v2zM9 6.5a2 2 0 0 1 0 4H4a2 2 0 0 1 0-4zM18.5 9a2 2 0 1 1 2 2h-2zM17.5 9a2 2 0 0 1-4 0V4a2 2 0 0 1 4 0zM15 18.5a2 2 0 1 1-2 2v-2zM15 17.5a2 2 0 0 1 0-4h5a2 2 0 0 1 0 4z"></path></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">Slack</span></div>
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="27" height="27" fill="#14161c"><path d="M12 2.2c.5 4 .9 5.9 2.3 7.3S17.8 11.3 21.8 11.8v.4c-4 .5-5.9.9-7.5 2.3S12.5 18 12 22c-.5-4-.9-5.9-2.3-7.5S6.2 12.7 2.2 12.2v-.4c4-.5 5.9-.9 7.5-2.3S11.5 6.2 12 2.2z"></path></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">Claude</span></div>
+        <div style="background: #ffffff; border: 1px solid rgba(30,50,90,0.08); border-radius: 18px; padding: clamp(22px, 3vw, 32px) 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 2px 12px rgba(40,60,110,0.04); transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(45,60,95,0.28);"><div style="width: 62px; height: 62px; border-radius: 16px; background: rgba(240,244,249,0.9); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="28" height="28" fill="#14161c"><path d="M4 4.4 14.2 3.6c1.3-.1 1.6 0 2.4.6l3.3 2.3c.6.4.8.5.8 1v12.1c0 .9-.3 1.4-1.4 1.5l-11.9.7c-.8.1-1.2-.1-1.6-.6l-2.4-3.1C3.2 17.5 3 17 3 16.4V5.8c0-.7.3-1.3 1-1.4zm10.5 1.3-10 .7c-.2 0-.3.1-.2.3l.9.8c.2.2.4.3.8.3l9.4-.6c.2 0 .1-.2 0-.3l-.9-1c-.1-.2-.4-.2-.9-.2zM5.3 9v10c0 .3.1.4.4.4l10.8-.6c.3 0 .4-.2.4-.5V8.2c0-.3-.1-.4-.4-.4l-10.8.6c-.3 0-.4.2-.4.5zm9.9.9c0 .2 0 .4-.3.4l-.5.1v7.4c-.4.2-.8.3-1.1.3-.5 0-.6-.2-1-.6l-3-4.7v4.5l1 .3s0 .4-.4.4l-2.8.2c-.1-.2 0-.4.2-.4l.5-.2v-6.6l-.7-.1c0-.2.1-.4.4-.4l3-.2 3.1 4.8v-4.2l-.9-.1c-.1-.2.1-.4.4-.4z"></path></svg></div><span style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #2c2e37;">Notion</span></div>
+    </div>
+  </section>
+
+<section aria-labelledby="contact-cta" style="max-width: 1120px; margin: 0 auto; padding: clamp(48px, 7vw, 86px) clamp(22px, 4vw, 40px) clamp(70px, 10vw, 120px);">
+    <div data-reveal="" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); max-width: 640px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <p style="margin: 0 0 14px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5c6b86;">Get in touch</p>
+      <h2 id="contact-cta" style="margin: 0; font-size: clamp(2rem, 4.6vw, 3rem); font-weight: 600; line-height: 1.06; letter-spacing: -0.03em; color: #14161c; text-wrap: balance;">Let’s make something intuitive together</h2>
+      <p style="margin: 20px 0 0; font-size: clamp(1rem, 1.8vw, 1.12rem); line-height: 1.6; color: #3f4a5c; max-width: 520px; text-wrap: pretty;">Have a role, a project, or a question about my work? I’d love to hear from you.</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px;">
+        <a href="mailto:aliyahpanjon07@gmail.com" style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 10px; background: #14161c; color: #ffffff; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; text-decoration: none; transition: transform 0.3s cubic-bezier(0.34,1.4,0.64,1), background 0.2s ease;" style-hover="background: #22357d; color: #ffffff; transform: translateY(-2px);">Email me <span aria-hidden="true">→</span></a>
+        <a href="https://drive.google.com/file/d/1RqPw23uk4WzAJzDFvYxji89rrciK0QHw/view?usp=sharing" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 10px; border: 1px solid rgba(30,50,90,0.18); background: #ffffff; color: #17181c; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; text-decoration: none; transition: transform 0.3s cubic-bezier(0.34,1.4,0.64,1), background 0.2s ease;" style-hover="background: rgba(30,50,90,0.06); color: #17181c; transform: translateY(-2px);">View resume</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position: relative; overflow: hidden; background: #ffffff; border-top: 1px solid rgba(30,50,90,0.09);">
+    <div style="max-width: 1120px; margin: 0 auto; padding: clamp(32px, 4.7vw, 50px) clamp(22px, 4vw, 40px) clamp(21px, 3.2vw, 29px); position: relative;">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <p style="margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; letter-spacing: -0.03em; color: #14161c;">Aliyah Panjon</p>
+          <p style="margin: 8px 0 0; font-size: 1.05rem; color: #4a586c;">UX/UI Designer</p>
+          <p style="margin: 18px 0 0; font-size: 1.02rem; line-height: 1.55; color: #6a7591; max-width: 320px; text-wrap: pretty;">Open to new-grad and internship roles for 2027. Let's build something people love to use.</p>
+        </div>
+        <nav aria-label="Contact and links" style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+          <a href="mailto:aliyahpanjon07@gmail.com" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-position: 0 100%; background-repeat: no-repeat; background-size: 0% 1.5px; transition: color 0.2s ease, background-size 0.3s cubic-bezier(0.34,1,0.64,1);" style-hover="color: #5c6b86; background-size: 100% 1.5px;">Email</a>
+          <a href="https://www.linkedin.com/in/aliyah-e-panjon/" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-position: 0 100%; background-repeat: no-repeat; background-size: 0% 1.5px; transition: color 0.2s ease, background-size 0.3s cubic-bezier(0.34,1,0.64,1);" style-hover="color: #5c6b86; background-size: 100% 1.5px;">LinkedIn</a>
+          <a href="https://github.com/Aliyah07Pan" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-position: 0 100%; background-repeat: no-repeat; background-size: 0% 1.5px; transition: color 0.2s ease, background-size 0.3s cubic-bezier(0.34,1,0.64,1);" style-hover="color: #5c6b86; background-size: 100% 1.5px;">GitHub</a>
+          <a href="https://drive.google.com/file/d/1RqPw23uk4WzAJzDFvYxji89rrciK0QHw/view?usp=sharing" target="_blank" rel="noopener" style="font-size: 1.05rem; font-weight: 500; color: #2c2e37; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-position: 0 100%; background-repeat: no-repeat; background-size: 0% 1.5px; transition: color 0.2s ease, background-size 0.3s cubic-bezier(0.34,1,0.64,1);" style-hover="color: #5c6b86; background-size: 100% 1.5px;">Resume</a>
+        </nav>
+      </div>
+      <div style="display: flex; flex-wrap: wrap-reverse; gap: 16px 40px; justify-content: space-between; align-items: center; margin-top: clamp(30px, 4.6vw, 48px); padding-top: 16px; border-top: 1px solid rgba(30,50,90,0.1);">
+        <p style="margin: 0; font-size: 13px; color: #6a7591;">© 2027 Aliyah Panjon</p>
+        <a href="#top" style="font-size: 13px; font-weight: 500; color: #6a7591; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s ease, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);" style-hover="color: #22357d; transform: translateY(-2px);">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  containerRef = React.createRef();
+
+  componentDidMount() {
+    const c = this.containerRef.current;
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reveals = c ? Array.from(c.querySelectorAll("[data-reveal]")) : [];
+    if (reduced || !("IntersectionObserver" in window)) {
+      reveals.forEach((el) => { el.style.opacity = "1"; el.style.transform = "none"; });
+      return;
+    }
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.style.opacity = "1";
+          en.target.style.transform = "none";
+          this.io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    reveals.forEach((el) => this.io.observe(el));
+  }
+
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+
+  renderVals() { return { containerRef: this.containerRef }; }
+}
+</script>
+</body>
+</html>
